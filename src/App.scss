@@ -72,8 +72,11 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  align-items: flex-start;
 }
-
+.site-content {
+  width: 100%;
+}
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),

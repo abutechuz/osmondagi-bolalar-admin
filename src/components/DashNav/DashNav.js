@@ -15,7 +15,7 @@ function DashNav () {
       <nav className="site-navigation__nav nav">
         <ul className="nav__list">
           <li className="nav__item">
-            <Link className="nav__link" to="/">
+            <Link className="nav__link" to="/statistics">
               <Statistik className="nav__link-svg" />
               <span className="nav__link-span">Statistik</span>
             </Link>
