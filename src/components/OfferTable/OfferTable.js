@@ -1,8 +1,16 @@
 import React from 'react'
 import TableController from '../TableContoller/TableController'
+import { useAsync } from '../../hooks/useAsync'
+import { client } from '../../utils/api-client'
 import './OfferTable.scss'
 
 function OfferTable() {
+    const { data, isLoading, isError, run } = useAsync()
+
+    React.useEffect(() => {
+        run(client('advices').then((data) => console.log(data)))
+    }, [run])
+
     return (
         <div className='offer-list__wrapper'>
             <h2 className='offer-section__heading'>Barcha Takliflar</h2>
