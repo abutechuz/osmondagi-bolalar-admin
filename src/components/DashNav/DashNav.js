@@ -37,10 +37,10 @@ function DashNav() {
                                 </Link>
                             </li>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/'>
+                                <Link className='nav__link' to='/offer'>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
-                                        Statistik
+                                        Takliflar
                                     </span>
                                 </Link>
                             </li>

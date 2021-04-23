@@ -4,6 +4,7 @@ import DashNav from './components/DashNav/DashNav'
 import DashMain from './components/DashMain/DashMain'
 import Stat from './screens/Stat/Stat'
 import Question from './screens/Question/Question'
+import Offer from './screens/Offer/Offer'
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Switch>
                         <Route path='/statistics' component={Stat} exact />
                         <Route path='/question' component={Question} exact />
+                        <Route path='/offer' component={Offer} exact />
                     </Switch>
                 </div>
             </div>
