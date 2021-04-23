@@ -5,7 +5,8 @@
 .stats-reg {
   margin-top: 15px;
   padding: 10px 20px;
-  
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
 }
 .stats-reg__title {
   margin: 0;
@@ -48,7 +49,7 @@
   font-size: 18px;
   line-height: 22px;
   letter-spacing: 0.2px;
-  color: #252733;
+  color: #4f4f4f;
   margin-right: 10px;
 }
 .stats-reg__span {
