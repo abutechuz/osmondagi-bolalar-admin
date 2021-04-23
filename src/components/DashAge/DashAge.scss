@@ -1,5 +1,5 @@
 .stats__age {
-  width: 64.5%;
+  width: 100%;
   background-color: #fff;
 }
 .stats-age {
@@ -22,7 +22,7 @@
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .stats-age__item {

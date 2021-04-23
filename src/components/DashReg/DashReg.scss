@@ -1,5 +1,5 @@
 .stats__reg {
-  width: 64.5%;
+  width: 100% ;
   background-color: #fff;
 }
 .stats-reg {
@@ -51,6 +51,7 @@
   letter-spacing: 0.2px;
   color: #4f4f4f;
   margin-right: 10px;
+  text-transform: capitalize;
 }
 .stats-reg__span {
   margin: 0;
