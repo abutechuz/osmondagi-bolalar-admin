@@ -12,7 +12,19 @@ function DashMain() {
         run(client('gender'))
     }, [run])
 
-    console.log(data)
+    const {
+        data: users,
+        isLoading: isLoadingUser,
+        isError: isErrorUser,
+        isSuccess: isSuccessUser,
+        run: userRun,
+    } = useAsync()
+
+    React.useEffect(() => {
+        userRun(client('users'))
+    }, [userRun])
+
+    console.log(users)
     return (
         <>
             <section className='genral-stat'>
@@ -27,7 +39,7 @@ function DashMain() {
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    271 people
+                                    {isSuccessUser && users?.length} people
                                 </span>
                             </div>
                         </li>
@@ -54,10 +66,10 @@ function DashMain() {
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccess && data[0].counter} people
+                                    {isSuccess && data[1].counter} people
                                 </span>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccess && data[0].percent + '%'}
+                                    {isSuccess && data[1].percent + '%'}
                                 </span>
                             </div>
                         </li>
