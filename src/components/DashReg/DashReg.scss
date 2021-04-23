@@ -40,7 +40,7 @@
     background-color: rgba(254, 195, 0, 0.2);
   }
   &:nth-child(3n) > .stats-reg__span  {
-    background-color: rgba(254, 195, 0, 0.8);
+    background-color: rgba(254, 0, 0, 0.747);
   }
 }
 .stats-reg__text {
@@ -58,7 +58,7 @@
 }
 .stats-reg__span {
   margin: 0;
-  background-color: rgba(41, 204, 150, 0.8);
+  // background-color: rgba(41, 204, 150, 0.8);
   padding: 1px 5px;
   border-radius: 5%;
   
