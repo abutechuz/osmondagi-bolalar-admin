@@ -23,8 +23,8 @@ function DashReg() {
         <ul className="stats-reg__list">
           { data?.map((e, i) => (
             <li className="stats-reg__item" key={i}>
-              <p className="stats-reg__text">{e.regions}</p>
-              <span className="stats-reg__span">{e.percent}%</span>
+              <p className="stats-reg__text">{e?.name}</p>
+              <span className="stats-reg__span">{e?.percent}%</span>
             </li>
           ))}
         </ul>
