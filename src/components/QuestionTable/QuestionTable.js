@@ -1,4 +1,5 @@
 import React from 'react'
+import './QuestionTable.scss'
 
 function QuestionTable() {
     return (
