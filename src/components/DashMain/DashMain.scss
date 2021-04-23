@@ -11,13 +11,13 @@
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 .genral-stat__item {
-  width: 350px;
+  width: 370px;
   background-color: #fff;
   padding: 15px;
-  margin-right: 10px;
+  margin-right: 20px;
 
   &:last-child {
     margin-right: 0;
