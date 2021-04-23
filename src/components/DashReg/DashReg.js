@@ -1,6 +1,6 @@
-import "./DashReg.scss"
+import "./DashReg.scss";
 
-function DashReg () {
+function DashReg() {
   return (
     <>
       <div className="stats__reg stats-reg">
@@ -57,6 +57,6 @@ function DashReg () {
         </ul>
       </div>
     </>
-  )
+  );
 }
-export default DashReg
+export default DashReg;
