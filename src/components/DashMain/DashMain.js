@@ -61,7 +61,7 @@ function DashMain() {
                         </li>
                         <li className='genral-stat__item'>
                             <div className='genral-stat__item-top'>
-                                <p className='genral-stat__item-text'>Ayolar</p>
+                                <p className='genral-stat__item-text'>Ayollar</p>
                                 <Female className='genral-stat__item-svg' />
                             </div>
                             <div className='genral-stat__item-botom'>
