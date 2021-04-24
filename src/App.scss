@@ -77,6 +77,24 @@ img {
 .site-content {
   width: 100%;
 }
+.title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  color: #4f4f4f;
+}
+.text {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: #4f4f4f;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),

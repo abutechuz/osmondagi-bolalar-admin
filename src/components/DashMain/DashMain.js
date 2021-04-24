@@ -23,8 +23,6 @@ function DashMain() {
     React.useEffect(() => {
         userRun(client('users'))
     }, [userRun])
-
-    console.log(users)
     return (
         <>
             <section className='genral-stat'>

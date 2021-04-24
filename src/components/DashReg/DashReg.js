@@ -2,12 +2,9 @@ import "./DashReg.scss";
 import { useEffect } from "react";
 import { useAsync } from "../../hooks/useAsync";
 import { client } from "../../utils/api-client";
+import { stil } from "../../hooks/useDio"
 
 function DashReg() {
-  const obj = {
-    tashkent: "Toshkent shahri",
-    bukhara: "Buxoro viloyati",
-  };
   const { data, isLoading, isError, run } = useAsync();
 
   useEffect(() => {
@@ -15,16 +12,6 @@ function DashReg() {
       client("regions")
     );
   }, [run]);
-
-  function stil (arg) {
-    if (Number(arg) < 10) {
-      return ["rgba(254, 0, 0, 0.8)", "rgba(254, 0, 0, 0.2)"]
-    } else if (Number(arg) > 10 && Number(arg) < 40) {
-      return ["rgba(254, 195, 0, 0.8)", "rgba(254, 195, 0, 0.2)"]
-    } else {
-      return ["rgba(41, 204, 150, 0.8)", "rgba(41, 204, 150, 0.2)"]
-    }
-  }
 
   return (
     <>
