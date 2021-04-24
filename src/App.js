@@ -6,6 +6,7 @@ import Stat from './screens/Stat/Stat'
 import Question from './screens/Question/Question'
 import Offer from './screens/Offer/Offer'
 import Speaker from './screens/Speaker/Speaker'
+import Posts from "./screens/Posts/Posts"
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path='/question' component={Question} exact />
                         <Route path='/offer' component={Offer} exact />
                         <Route path='/speaker' component={Speaker} exact />
+                        <Route path='/posts' component={Posts} exact />
                     </Switch>
                 </div>
             </div>
