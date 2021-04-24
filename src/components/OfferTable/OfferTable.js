@@ -5,22 +5,31 @@ import { client } from '../../utils/api-client'
 import './OfferTable.scss'
 
 function OfferTable() {
+    const [page, setPage] = React.useState(1)
+
+    const elList = React.useRef(null)
+
+    const [elements, setElements] = React.useState(0)
+
     const { data, isSuccess, run } = useAsync()
 
     React.useEffect(() => {
-        run(client('advices'))
-    }, [run])
+        run(client(`advices?limit=5&page=${page}`))
+    }, [run, page])
 
+    React.useEffect(() => {
+        setElements(elList.current.childElementCount)
+    }, [data])
     return (
         <div className='offer-list__wrapper'>
-            <h2 className='offer-section__heading'>Barcha Takliflar</h2>
-            <ul className='offer-list'>
+            <h2 className='offer-section__heading title'>Barcha Takliflar</h2>
+            <ul className='offer-list' ref={elList}>
                 {isSuccess &&
                     data?.map((offer) => (
-                        <li className='offer-list__item'>
-                            <div className='offer-list__id'>
-                                {offer?.id}. 
-                            </div>
+                        <li
+                            className='offer-list__item'
+                            key={offer.id + +Math.random()}>
+                            <div className='offer-list__id'>{offer?.id}.</div>
                             <div className='offer-list__right-box'>
                                 <h3 className='offer-list__username'>
                                     {offer?.username}
@@ -36,7 +45,11 @@ function OfferTable() {
                     ))}
             </ul>
 
-            <TableController />
+            <TableController
+                setPage={setPage}
+                page={page}
+                numberLi={elements}
+            />
         </div>
     )
 }

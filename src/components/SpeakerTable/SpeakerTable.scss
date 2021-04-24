@@ -1,6 +1,5 @@
-.speaker-list__wrapper {
-    width: 100%;
-    max-width: 900px;
+.speaker-table__wrapper {
+    width: 900px;
     border: 1px solid #dfe0eb;
     border-radius: 3px;
     background-color: #fff;
@@ -8,79 +7,57 @@
 }
 
 .speaker-section__heading {
-    margin: 0;
-    margin-bottom: 40px;
-    font-weight: bold;
-    font-size: 19px;
-    line-height: 24px;
-    letter-spacing: 0.4px;
-    color: #252733;
-}
-
-.speaker-list {
-    width: 100%;
-    height: 350px;
-    margin: 0;
     margin-bottom: 20px;
-    padding: 0;
-    overflow: auto;
 }
 
-.speaker-list__item {
-    display: flex;
-    align-items: flex-start;
-    padding: 10px;
+.speaker-table {
+    width: 100%;
+    display: block;
+    margin-right: 0;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.speaker-list__item + .speaker-list__item {
-    border-top: 1.5px solid #dfe0eb;
+.speaker-table__head-th,
+.speaker-table__body-td {
+    border: 1px solid black;
+    padding: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.speaker-list__id {
-    margin-right: 20px;
-    font-weight: bold;
+.speaker-table__head-th--id,
+.speaker-table__body-td--id {
+    width: 30px;
 }
 
-.speaker-list__right-box {
-    padding: 0 15px;
-}
-.speaker-list__right-box + .speaker-list__right-box {
-    border-left: 1px solid #252733;
-}
-.speaker-list__username {
-    margin-top: 0;
-    margin-bottom: 3px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-    letter-spacing: 0.2px;
-    color: #252733;
+.speaker-table__head-th-name,
+.speaker-table__body-td-name {
+    width: 125px;
 }
 
-.speaker-list__speaker {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.2px;
-    color: #252733;
+.speaker-table__head-th-surname,
+.speaker-table__body-td-surname {
+    width: 125px;
 }
 
-.speaker-list::-webkit-scrollbar {
-    width: 11px;
+.speaker-table__head-th-profession,
+.speaker-table__body-td-profession {
+    width: 125px;
 }
 
-.speaker-list {
-    scrollbar-width: thin;
-    scrollbar-color: #e5e5e5;
+.speaker-table__head-th-age,
+.speaker-table__body-td-age {
+    width: 125px;
 }
 
-.speaker-list::-webkit-scrollbar-track {
-    background: #e5e5e5;
-    border-radius: 6px;
+.speaker-table__head-th-work,
+.speaker-table__body-td-work {
+    width: 125px;
 }
 
-.speaker-list::-webkit-scrollbar-thumb {
-    background-color: #ffd369;
-    border-radius: 6px;
-    border: 3px solid #ffd369;
+.speaker-table__head-th-time,
+.speaker-table__body-td-time {
+    width: 125px;
 }
