@@ -23,7 +23,8 @@ function DashNav() {
                                 <NavLink
                                     className='nav__link'
                                     activeClassName='nav__link--active'
-                                    to='/' exact>
+                                    to='/'
+                                    exact>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Statistik
