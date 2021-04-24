@@ -17,7 +17,7 @@
     color: #252733;
 }
 
-.offer-list{
+.offer-list {
     width: 100%;
     height: 350px;
     margin: 0;
@@ -32,16 +32,19 @@
     padding: 10px;
 }
 
-.offer-list__item  + .offer-list__item {
-    border-top: 1.5px solid #DFE0EB;
-
+.offer-list__item + .offer-list__item {
+    border-top: 1.5px solid #dfe0eb;
+}
+ 
+.offer-list__id {
+    margin-right: 20px;
 }
 
-.offer-list__right-box{
+.offer-list__right-box {
     margin-right: 40px;
 }
 
-.offer-list__username{
+.offer-list__username {
     margin-top: 0;
     margin-bottom: 3px;
     font-weight: 600;
@@ -51,31 +54,30 @@
     color: #252733;
 }
 
-.offer-list__offer{
+.offer-list__offer {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.2px;
     color: #252733;
 }
- 
 
 .offer-list::-webkit-scrollbar {
-  width: 11px;
+    width: 11px;
 }
 
 .offer-list {
-  scrollbar-width: thin;
-  scrollbar-color: #E5E5E5;
+    scrollbar-width: thin;
+    scrollbar-color: #e5e5e5;
 }
 
 .offer-list::-webkit-scrollbar-track {
-    background: #E5E5E5;
+    background: #e5e5e5;
     border-radius: 6px;
 }
 
 .offer-list::-webkit-scrollbar-thumb {
-  background-color: #FFD369 ;
-  border-radius: 6px;
-  border: 3px solid #FFD369;
+    background-color: #ffd369;
+    border-radius: 6px;
+    border: 3px solid #ffd369;
 }

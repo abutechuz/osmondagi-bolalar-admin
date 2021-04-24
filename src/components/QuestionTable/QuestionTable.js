@@ -18,6 +18,7 @@ function QuestionTable() {
                 {isSuccess &&
                     data?.map((q) => (
                         <li className='question-list__item' key={q?.time}>
+                            <div className='question-list__id'>{q?.id}.</div>
                             <div className='question-list__right-box'>
                                 <h3 className='question-list__username'>
                                     {q?.username}
