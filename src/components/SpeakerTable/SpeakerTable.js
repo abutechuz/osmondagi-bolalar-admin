@@ -13,82 +13,56 @@ function SpeakerTable() {
 
     return (
         <div className='speaker-table__wrapper'>
-            <h2 className='speaker-section__heading'>
+            <h2 className='speaker-section__heading title'>
                 Barcha Speaker uchun Takliflar
             </h2>
-            <thead className='speaker-table'>
-                <tr className='speaker-table__item'>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>ID</h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>
+            <table className='speaker-table'>
+                <thead className='speaker-table'>
+                    <tr className='speaker-table__item'>
+                        <th className='speaker-table__right-box'>ID</th>
+                        <th className='speaker-table__right-box'>
                             Speaker ismi
-                        </h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>
+                        </th>
+                        <th className='speaker-table__right-box'>
                             Speaker familiyasi
-                        </h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>Kasbi</h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>Yoshi</h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>Ish joyi</h3>
-                    </th>
-                    <th className='speaker-table__right-box'>
-                        <h3 className='speaker-table__username'>
+                        </th>
+                        <th className='speaker-table__right-box'>Kasbi</th>
+                        <th className='speaker-table__right-box'>Yoshi</th>
+                        <th className='speaker-table__right-box'>Ish joyi</th>
+                        <th className='speaker-table__right-box'>
                             Tavsiya etilgan vaqt
-                        </h3>
-                    </th>
-                </tr>
+                        </th>
+                    </tr>
+                </thead>
                 <tbody className='speaker-table__body'>
-                {isSuccess &&
-                    data?.map((speaker) => (
-                        <tr className='speaker-table__item'>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                    {isSuccess &&
+                        data?.map((speaker) => (
+                            <tr className='speaker-table__item'>
+                                <td className='speaker-table__right-box'>
                                     {speaker.id ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.name ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.surname ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.profession ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.age ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.workplace ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                            <div className='speaker-table__right-box'>
-                                <h3 className='speaker-table__username'>
+                                </td>
+                                <td className='speaker-table__right-box'>
                                     {speaker.time ?? 'kiritilmagan'}
-                                </h3>
-                            </div>
-                        </tr>
-                    ))}
-                    </tbody>
-            </thead>
+                                </td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
 
             <TableController />
         </div>

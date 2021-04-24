@@ -35,16 +35,20 @@
 .offer-list__item + .offer-list__item {
     border-top: 1.5px solid #dfe0eb;
 }
- 
+
 .offer-list__id {
     margin-right: 20px;
 }
 
 .offer-list__right-box {
-    margin-right: 40px;
+    width: 175px;
+    padding-right: 25px;
 }
 
 .offer-list__username {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     margin-top: 0;
     margin-bottom: 3px;
     font-weight: 600;
