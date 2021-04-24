@@ -1,15 +1,15 @@
-import "./DashProf.scss";
-import "../DashReg/DashReg.scss";
-import { useEffect } from "react";
-import { useAsync } from "../../hooks/useAsync";
-import { client } from "../../utils/api-client";
+import './DashProf.scss'
+import '../DashReg/DashReg.scss'
+import { useEffect } from 'react'
+import { useAsync } from '../../hooks/useAsync'
+import { client } from '../../utils/api-client'
 
 function DashProf() {
-  const { data, isLoading, isError, run } = useAsync();
+    const { data, isLoading, isError, run } = useAsync()
 
-  useEffect(() => {
-    run(client("profession"));
-  }, [run]);
+    useEffect(() => {
+        run(client('profession'))
+    }, [run])
 
   function stil (arg) {
     if (Number(arg) < 10) {
@@ -38,4 +38,4 @@ function DashProf() {
   );
 }
 
-export default DashProf;
+export default DashProf

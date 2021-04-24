@@ -1,15 +1,14 @@
 import './DashNav.scss'
 import oBLogo from '../../assets/img/obLogo.png'
 import { Statistik, Seting } from '../Svgs/Svgs'
-import { Link } from 'react-router-dom'
-import Container from '../Container/Container'
+import { NavLink } from 'react-router-dom'
 
 function DashNav() {
     return (
         <>
             <div className='site-navigation'>
                 <div className='site-navigation__container'>
-                    <Link className='site-navigation__logo-link' to='/'>
+                    <NavLink className='site-navigation__logo-link' to='/'>
                         <img
                             className='site-navigation__logo-img'
                             src={oBLogo}
@@ -17,64 +16,85 @@ function DashNav() {
                             width='85'
                             height='52'
                         />
-                    </Link>
+                    </NavLink>
                     <nav className='site-navigation__nav nav'>
                         <ul className='nav__list'>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/statistics'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/' exact>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Statistik
                                     </span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/question'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/question'>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Savollar
                                     </span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/offer'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/offer'>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Takliflar
                                     </span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/speaker'>
+                                    <Statistik className='nav__link-svg' />
+                                    <span className='nav__link-span'>
+                                        Speakerlar
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li className='nav__item'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/users'>
+                                    <Statistik className='nav__link-svg' />
+                                    <span className='nav__link-span'>
+                                        Foydalanuvchilar
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li className='nav__item'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/link-2'>
                                     <Statistik className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Statistik
                                     </span>
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className='nav__item'>
-                                <Link className='nav__link' to='/'>
-                                    <Statistik className='nav__link-svg' />
-                                    <span className='nav__link-span'>
-                                        Statistik
-                                    </span>
-                                </Link>
-                            </li>
-                            <li className='nav__item'>
-                                <Link className='nav__link' to='/'>
-                                    <Statistik className='nav__link-svg' />
-                                    <span className='nav__link-span'>
-                                        Statistik
-                                    </span>
-                                </Link>
-                            </li>
-                            <li className='nav__item'>
-                                <Link className='nav__link' to='/'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/link'>
                                     <Seting className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Setings
                                     </span>
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>

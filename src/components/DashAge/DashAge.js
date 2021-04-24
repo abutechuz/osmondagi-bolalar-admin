@@ -1,14 +1,14 @@
-import "./DashAge.scss";
-import { useEffect } from "react";
-import { useAsync } from "../../hooks/useAsync";
-import { client } from "../../utils/api-client";
+import './DashAge.scss'
+import { useEffect } from 'react'
+import { useAsync } from '../../hooks/useAsync'
+import { client } from '../../utils/api-client'
 
 function DashAge() {
-  const { data, isLoading, isError, run } = useAsync();
+    const { data, isLoading, isError, run } = useAsync()
 
-  useEffect(() => {
-    run(client("age"));
-  }, [run]);
+    useEffect(() => {
+        run(client('age'))
+    }, [run])
 
   function stil (arg) {
     if (Number(arg) < 10) {
@@ -40,4 +40,4 @@ function DashAge() {
   );
 }
 
-export default DashAge;
+export default DashAge
