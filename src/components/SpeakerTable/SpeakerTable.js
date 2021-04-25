@@ -1,8 +1,8 @@
 import React from 'react'
 import TableController from '../TableContoller/TableController'
 import './SpeakerTable.scss'
-import { useAsync } from '../../hooks/useAsync'
 import { client } from '../../utils/api-client'
+import { useQuery } from 'react-query'
 
 function SpeakerTable() {
     const [page, setPage] = React.useState(1)
@@ -11,11 +11,13 @@ function SpeakerTable() {
 
     const elList = React.useRef(null)
 
-    const { data, isSuccess, run } = useAsync()
+    const fetchProjects = (page = 0) => client('speakers?limit=5&page=' + page)
 
-    React.useEffect(() => {
-        run(client(`speakers?limit=5&page=${page}`))
-    }, [run, page])
+    const { data, isSuccess } = useQuery(
+        ['speakers', page],
+        () => fetchProjects(page),
+        { keepPreviousData: true }
+    )
 
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
@@ -31,13 +33,21 @@ function SpeakerTable() {
                         <th className='speaker-table__head-th speaker-table__head-th--id'>
                             ID
                         </th>
-                        <th className='speaker-table__head-th speaker-table__head-th-name'>Speaker ismi</th>
+                        <th className='speaker-table__head-th speaker-table__head-th-name'>
+                            Speaker ismi
+                        </th>
                         <th className='speaker-table__head-th speaker-table__head-th-surname'>
                             Speaker familiyasi
                         </th>
-                        <th className='speaker-table__head-th speaker-table__head-th-profession'>Kasbi</th>
-                        <th className='speaker-table__head-th speaker-table__head-th-age'>Yoshi</th>
-                        <th className='speaker-table__head-th speaker-table__head-th-work'>Ish joyi</th>
+                        <th className='speaker-table__head-th speaker-table__head-th-profession'>
+                            Kasbi
+                        </th>
+                        <th className='speaker-table__head-th speaker-table__head-th-age'>
+                            Yoshi
+                        </th>
+                        <th className='speaker-table__head-th speaker-table__head-th-work'>
+                            Ish joyi
+                        </th>
                         <th className='speaker-table__head-th speaker-table__head-th-time'>
                             Tavsiya etilgan vaqt
                         </th>
