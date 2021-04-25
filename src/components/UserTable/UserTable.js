@@ -67,7 +67,7 @@ function UserTable() {
                                 className='user-table__body'
                                 key={user.id + Math.random()}>
                                 <td className='user-table__body-td user-table__body-td-id'>
-                                    {index ?? '-'}
+                                    {index + 1 ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-name'>
                                     {user.name ?? '-'}

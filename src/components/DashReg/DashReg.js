@@ -13,7 +13,7 @@ function DashReg() {
     );
   }, [run]);
 
-  return (
+  return ( 
     <>
       <div className="stats__reg stats-reg">
         <h3 className="stats-reg__title">Region</h3>

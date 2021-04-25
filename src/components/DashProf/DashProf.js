@@ -15,7 +15,7 @@ function DashProf() {
   return (
     <>
       <div className="stats__prof stats-prof">
-        <h3 className="stats-prof__title">Profassion</h3>
+        <h3 className="stats-prof__title">Profession</h3>
         <ul className="stats-prof__list">
           {data?.map((e, i) => (
             <li className="stats-prof__item" key={Math.random()} style={{background: stil(e?.percent)[1]}} >

@@ -22,42 +22,9 @@
 .speaker-table__body-td {
     border: 1px solid black;
     padding: 7px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .speaker-table__head-th--id,
 .speaker-table__body-td--id {
     width: 30px;
-}
-
-.speaker-table__head-th-name,
-.speaker-table__body-td-name {
-    width: 125px;
-}
-
-.speaker-table__head-th-surname,
-.speaker-table__body-td-surname {
-    width: 125px;
-}
-
-.speaker-table__head-th-profession,
-.speaker-table__body-td-profession {
-    width: 125px;
-}
-
-.speaker-table__head-th-age,
-.speaker-table__body-td-age {
-    width: 125px;
-}
-
-.speaker-table__head-th-work,
-.speaker-table__body-td-work {
-    width: 125px;
-}
-
-.speaker-table__head-th-time,
-.speaker-table__body-td-time {
-    width: 125px;
 }

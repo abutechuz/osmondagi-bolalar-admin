@@ -22,54 +22,11 @@
 .user-table__body-td {
     border: 1px solid black;
     padding: 7px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .user-table__head-th-id,
 .user-table__body-td-id {
     width: 30px;
-}
-
-.user-table__head-th-name,
-.user-table__body-td-name {
-    width: 50px;
-}
-
-.user-table__head-th-surname,
-.user-table__body-td-surname {
-    width: 50px;
-}
-
-.user-table__head-th-profession,
-.user-table__body-td-profession {
-    width: 50px;
-}
-
-.user-table__head-th-birth,
-.user-table__body-td-birth {
-    width: 50px;
-}
-
-.user-table__head-th-birth,
-.user-table__body-td-birth {
-    width: 50px;
-}
-
-.user-table__head-th-gender,
-.user-table__body-td-gender {
-    width: 50px;
-}
-
-.user-table__head-th-region,
-.user-table__body-td-region {
-    width: 50px;
-}
-
-.user-table__head-th-score,
-.user-table__body-td-score {
-    width: 50px;
 }
 
 .user-table__body-td-score .user-table__score-clear {
