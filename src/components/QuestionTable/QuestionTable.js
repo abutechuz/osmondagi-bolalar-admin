@@ -1,7 +1,7 @@
 import React from 'react'
 import TableController from '../TableContoller/TableController'
 import './QuestionTable.scss'
-import { useAsync } from '../../hooks/useAsync'
+import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
 
 function QuestionTable() {
@@ -11,10 +11,13 @@ function QuestionTable() {
 
     const [elements, setElements] = React.useState(0)
 
-    const { data, isSuccess, run } = useAsync()
-    React.useEffect(() => {
-        run(client(`questions?limit=5&page=${page}`))
-    }, [run, page])
+    const fetchProjects = (page = 0) => client('questions?limit=5&page=' + page)
+
+    const { data, isSuccess } = useQuery(
+        ['questions', page],
+        () => fetchProjects(page),
+        { keepPreviousData: true }
+    )
 
     React.useEffect(() => {
         setElements(elList.current.childElementCount)

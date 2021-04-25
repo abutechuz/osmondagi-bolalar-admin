@@ -1,6 +1,6 @@
 import React from 'react'
 import TableController from '../TableContoller/TableController'
-import { useAsync } from '../../hooks/useAsync'
+import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
 import './OfferTable.scss'
 
@@ -11,11 +11,13 @@ function OfferTable() {
 
     const [elements, setElements] = React.useState(0)
 
-    const { data, isSuccess, run } = useAsync()
+    const fetchProjects = (page = 0) => client('advices?limit=5&page=' + page)
 
-    React.useEffect(() => {
-        run(client(`advices?limit=5&page=${page}`))
-    }, [run, page])
+    const { data, isSuccess } = useQuery(
+        ['advices', page],
+        () => fetchProjects(page),
+        { keepPreviousData: true }
+    )
 
     React.useEffect(() => {
         setElements(elList.current.childElementCount)

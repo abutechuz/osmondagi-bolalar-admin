@@ -60,7 +60,7 @@ function SpeakerTable() {
                                 className='speaker-table__body'
                                 key={speaker.id + Math.random()}>
                                 <td className='speaker-table__body-td speaker-table__body-td--id'>
-                                    {speaker.id + 1 ?? '-'}
+                                    {speaker.id ?? '-'}
                                 </td>
                                 <td className='speaker-table__body-td speaker-table__body-td-name'>
                                     {speaker.name ?? '-'}

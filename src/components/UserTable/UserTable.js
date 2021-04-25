@@ -1,7 +1,7 @@
 import React from 'react'
 import TableController from '../TableContoller/TableController'
 import './UserTable.scss'
-import { useAsync } from '../../hooks/useAsync'
+import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
 
 function UserTable() {
@@ -12,11 +12,13 @@ function UserTable() {
     const elList = React.useRef(null)
     const elItem = React.useRef(null)
 
-    const { data, isSuccess, run } = useAsync()
+    const fetchProjects = (page = 0) => client('users?limit=5&page=' + page)
 
-    React.useEffect(() => {
-        run(client(`users?limit=5&page=${page}`))
-    }, [run, page])
+    const { data, isSuccess } = useQuery(
+        ['users', page],
+        () => fetchProjects(page),
+        { keepPreviousData: true }
+    )
 
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
@@ -67,7 +69,7 @@ function UserTable() {
                                 className='user-table__body'
                                 key={user.id + Math.random()}>
                                 <td className='user-table__body-td user-table__body-td-id'>
-                                    {index + 1 ?? '-'}
+                                    {user.id ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-name'>
                                     {user.name ?? '-'}
