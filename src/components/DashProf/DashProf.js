@@ -6,7 +6,7 @@ import { client } from '../../utils/api-client'
 import { stil } from "../../hooks/useDio"
 
 function DashProf() {
-    const { data, isLoading, isError, run } = useAsync()
+    const { data, run } = useAsync()
 
     useEffect(() => {
         run(client('profession'))

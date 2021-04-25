@@ -2,27 +2,19 @@ import React from 'react'
 import './DashMain.scss'
 import { Male, Female, User } from '../Svgs/Svgs'
 import Container from '../Container/Container'
-import { useAsync } from '../../hooks/useAsync'
+import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
 
 function DashMain() {
-    const { data, isLoading, isError, isSuccess, run } = useAsync()
+    const { data, isSuccess } = useQuery({
+        queryKey: 'gender',
+        queryFn: () => client('gender'),
+    })
+    const { data: users, isSuccess: isSuccessUser, run: userRun } = useQuery({
+        queryKey: 'users',
+        queryFn: () => client('users'),
+    })
 
-    React.useEffect(() => {
-        run(client('gender'))
-    }, [run])
-
-    const {
-        data: users,
-        isLoading: isLoadingUser,
-        isError: isErrorUser,
-        isSuccess: isSuccessUser,
-        run: userRun,
-    } = useAsync()
-
-    React.useEffect(() => {
-        userRun(client('users'))
-    }, [userRun])
     return (
         <>
             <section className='genral-stat'>
@@ -37,7 +29,7 @@ function DashMain() {
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccessUser && users?.length} people
+                                    {isSuccessUser && users?.length + ' people'}
                                 </span>
                             </div>
                         </li>
@@ -50,7 +42,7 @@ function DashMain() {
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccess && data[0].counter} people
+                                    {isSuccess && data[0].counter + ' people'}
                                 </span>
                                 <span className='genral-stat__item-span'>
                                     {isSuccess && data[0].percent + '%'}
@@ -59,12 +51,14 @@ function DashMain() {
                         </li>
                         <li className='genral-stat__item'>
                             <div className='genral-stat__item-top'>
-                                <p className='genral-stat__item-text'>Ayollar</p>
+                                <p className='genral-stat__item-text'>
+                                    Ayollar
+                                </p>
                                 <Female className='genral-stat__item-svg' />
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccess && data[1].counter} people
+                                    {isSuccess && data[1].counter + ' people'}
                                 </span>
                                 <span className='genral-stat__item-span'>
                                     {isSuccess && data[1].percent + '%'}
