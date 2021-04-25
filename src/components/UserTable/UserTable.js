@@ -89,13 +89,12 @@ function UserTable() {
                                 <td className='user-table__body-td user-table__body-td-region'>
                                     {user.region ?? '-'}
                                 </td>
-                                <td
-                                    className='user-table__body-td user-table__body-td-score'
-                                    ref={elItem}>
+                                <td className='user-table__body-td user-table__body-td-score'>
                                     <button
                                         className='user-table__score-clear'
                                         id={user.user_tg_id}
-                                        onDoubleClick={handleDoubleClick}>
+                                        onDoubleClick={handleDoubleClick}
+                                        ref={elItem}>
                                         &#128465;
                                     </button>
                                     {user.score ?? '-'}
