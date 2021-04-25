@@ -1,12 +1,14 @@
 import './DashAge.scss'
 import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
+import { stil } from '../../hooks/useDio'
 
 function DashAge() {
     const { data, isSuccess } = useQuery({
         queryKey: 'age',
         queryFn: () => client('age'),
     })
+  
 
     return (
         <>
@@ -25,7 +27,7 @@ function DashAge() {
                                 <span
                                     className='stats-age__dio'
                                     aria-label='70%'
-                                    style={{ width: e.percent + '%' }}></span>
+                                    style={{ width: e.percent + '%', background: stil(e?.percent)[0] }}></span>
                             </li>
                         ))}
                 </ul>
