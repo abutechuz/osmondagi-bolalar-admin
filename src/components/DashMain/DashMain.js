@@ -10,7 +10,7 @@ function DashMain() {
         queryKey: 'gender',
         queryFn: () => client('gender'),
     })
-    const { data: users, isSuccess: isSuccessUser, run: userRun } = useQuery({
+    const { data: users, isSuccess: isSuccessUser } = useQuery({
         queryKey: 'users',
         queryFn: () => client('users'),
     })
