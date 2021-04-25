@@ -1,5 +1,5 @@
 import * as auth from './auth-provider'
-const apiURL = process.env.REACT_APP_API_URL
+const apiURL = process.env.NODE_ENV
 
 function client(
     endpoint,
