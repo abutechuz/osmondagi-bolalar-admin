@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { useLocation } from 'react-router-dom'
 import { client } from '../../utils/api-client'
 import { useQuery } from 'react-query'
+import moment from 'moment'
 
 function StatChartYearly() {
     const { pathname } = useLocation()
@@ -30,7 +31,7 @@ function StatChartYearly() {
         labels: labelData,
         datasets: [
             {
-                label: 'Year',
+                label: dateYear,
                 fill: false,
                 data: datasetData,
                 borderColor: ['rgba(81, 212, 170, 0.8'],

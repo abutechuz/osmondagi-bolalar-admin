@@ -29,7 +29,7 @@ function StatChartWeekly() {
         labels: labelData,
         datasets: [
             {
-                label: 'Week',
+                label: 'So\'nggi hafta',
                 fill: false,
                 data: datasetData,
                 borderColor: ['rgba(81, 212, 170, 0.8'],

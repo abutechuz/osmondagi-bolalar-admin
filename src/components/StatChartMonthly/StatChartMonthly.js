@@ -3,10 +3,11 @@ import { Line } from 'react-chartjs-2'
 import { useLocation } from 'react-router-dom'
 import { client } from '../../utils/api-client'
 import { useQuery } from 'react-query'
+import moment from 'moment'
 
 function StatChartMonthly() {
     const { pathname } = useLocation()
-    let dateMonth = new Date().getMonth() + 1
+    let dateMonth = moment(new Date()).format('M')
     let dateYear = new Date().getFullYear()
 
     function findStatus(pathname) {
@@ -31,7 +32,7 @@ function StatChartMonthly() {
         labels: labelData,
         datasets: [
             {
-                label: 'Month',
+                label: moment(new Date()).format('MMMM'),
                 fill: false,
                 data: datasetData,
                 borderColor: ['rgba(81, 212, 170, 0.8'],
