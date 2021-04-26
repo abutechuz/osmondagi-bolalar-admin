@@ -35,6 +35,11 @@
   background-color: rgba(41, 204, 150, 0.2);
   margin-bottom: 7.5px;
   border-radius: 3px;
+  position: relative; 
+
+  &:hover .stats-reg__count {
+    display: block;
+  }
 }
 .stats-prof__text {
   margin: 0;

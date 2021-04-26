@@ -27,6 +27,7 @@ function DashProf() {
                                     style={{ background: stil(e?.percent)[0] }}>
                                     {e.percent}%
                                 </span>
+                                <span className="stats-reg__count" style={{ background: stil(e?.percent)[0], borderColor: stil(e?.percent)[0]}}>{e?.percent}</span>
                             </li>
                         ))}
                 </ul>

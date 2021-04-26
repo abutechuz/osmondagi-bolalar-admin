@@ -35,12 +35,10 @@
   background-color: rgba(41, 204, 150, 0.2);
   margin-bottom: 10px;
   border-radius: 3px;
-  
-  &:nth-child(3n) {
-    background-color: rgba(254, 195, 0, 0.2);
-  }
-  &:nth-child(3n) > .stats-reg__span  {
-    background-color: rgba(254, 0, 0, 0.747);
+  position: relative;
+
+  &:hover .stats-reg__count {
+    display: block;
   }
 }
 .stats-reg__text {
@@ -58,7 +56,6 @@
 }
 .stats-reg__span {
   margin: 0;
-  // background-color: rgba(41, 204, 150, 0.8);
   padding: 1px 5px;
   border-radius: 5%;
   
@@ -68,4 +65,40 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+.stats-reg__count {
+  display: none;
+  padding: 5px 10px;
+  position: absolute;
+  border-radius: 3px;
+  width: 80%;
+  text-align: center;
+  top: -35px;
+  left: 10%;
+  background-color: rgba(211, 211, 211, 0.493);
+  
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border-color: red;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-top: 5px solid;
+    border-top-color: currentColor;
+    border-color: inherit;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
 }

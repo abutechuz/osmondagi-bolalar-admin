@@ -13,8 +13,8 @@ function DashNav() {
               className="site-navigation__logo-img"
               src={oBLogo}
               alt="Osmondagi bolalar"
-              width="85"
-              height="52"
+              width="200"
+              height="80"
             />
           </NavLink>
           <nav className="site-navigation__nav nav">
