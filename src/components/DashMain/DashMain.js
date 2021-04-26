@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './DashMain.scss'
-import { Male, Female, User } from '../Svgs/Svgs'
+import { Male, Female, Statistik } from '../Svgs/Svgs'
 import Container from '../Container/Container'
 import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
@@ -25,7 +26,15 @@ function DashMain() {
                                 <p className='genral-stat__item-text'>
                                     Foydalanuvchi
                                 </p>
-                                <User className='genral-stat__item-svg' />
+                                <Link
+                                    className='genral-stat__item-svg-link'
+                                    to='/chart-stat'>
+                                    <Statistik
+                                        className='genral-stat__item-svg'
+                                        width={30}
+                                        height={30}
+                                    />
+                                </Link>
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
