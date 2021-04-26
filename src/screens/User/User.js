@@ -4,7 +4,7 @@ import './User.scss'
 
 function User() {
     return (
-        <section className='user-section'>
+        <section className='user-section stats'>
             <UserTable />
         </section>
     )

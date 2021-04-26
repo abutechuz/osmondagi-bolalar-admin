@@ -1,27 +1,28 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
+import { useLocation } from 'react-router-dom'
+import { client } from '../../utils/api-client'
+import { useQuery } from 'react-query'
 
 function StatChart() {
+    const { pathname } = useLocation()
+    let date = new Date().getFullYear
+    
+    const { data: graph } = useQuery({
+        queryKey: 'chart-stat',
+        queryFn: () => client(`year/${date}`),
+    })
+
+    let labelData = graph && graph.map((d) => d.month_bg)
+    let datasetData = graph && graph.map((d) => d.stat)
+
     const data = {
-        labels: [
-            'Jan',
-            'Feb',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-        ],
+        labels: labelData,
         datasets: [
             {
-                label: "Trend",
+                label: 'Trend',
                 fill: false,
-                data: [4, 5, 4, 8, 8, 7, 25],
+                data: datasetData,
 
                 borderColor: ['rgba(81, 212, 170, 0.8'],
                 backgroundColor: ['rgba(81, 212, 170, 0.8'],
