@@ -9,6 +9,7 @@ import Speaker from './screens/Speaker/Speaker'
 import Posts from './screens/Posts/Posts'
 import User from './screens/User/User'
 import DashChart from './screens/DashChart/DashChart'
+import Login from './screens/Login/Login'
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                         <Route path='/speaker' component={Speaker} exact />
                         <Route path='/posts' component={Posts} exact />
                         <Route path='/users' component={User} exact />
+                        <Route path='/login' component={Login} exact />
                     </Switch>
                 </div>
             </div>

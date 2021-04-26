@@ -4,7 +4,7 @@ import './Offer.scss'
 
 function Offer() {
     return (
-        <section className='offer-section'>
+        <section className='offer-section stats'>
             <OfferTable />
         </section>
     )

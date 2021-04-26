@@ -8,7 +8,7 @@ import './DashChart.scss'
 
 function DashChart() {
     return (
-        <div className='dashchart-wrapper'>
+        <div className='dashchart-wrapper stats'>
             <DashChartNav />
             <h2 className='dashchart-heading'>Foydalanuvchilar qo'shilishi</h2>
             <Switch>

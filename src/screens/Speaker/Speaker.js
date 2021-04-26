@@ -4,7 +4,7 @@ import './Speaker.scss'
 
 function Speaker() {
     return (
-        <section className='speaker-section '>
+        <section className='speaker-section stats'>
             <SpeakerTable />
         </section>
     )

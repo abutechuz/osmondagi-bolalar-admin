@@ -4,7 +4,7 @@ import './Question.scss'
 
 function Question() {
     return (
-        <section className='question-section'>
+        <section className='question-section stats'>
             <QuestionTable />
         </section>
     )
