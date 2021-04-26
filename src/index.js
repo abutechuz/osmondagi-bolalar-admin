@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider as Authentication } from './context/Authentication'
 import { QueryClient, QueryClientProvider } from 'react-query'
 const queryClient = new QueryClient()
+
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>

@@ -8,6 +8,7 @@ import Offer from './screens/Offer/Offer'
 import Speaker from './screens/Speaker/Speaker'
 import Posts from './screens/Posts/Posts'
 import User from './screens/User/User'
+import DashChart from './screens/DashChart/DashChart'
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <DashMain />
                     <Switch>
                         <Route path='/' component={Stat} exact />
+                        <Route path='/chart-stat' component={DashChart} />
                         <Route path='/question' component={Question} exact />
                         <Route path='/offer' component={Offer} exact />
                         <Route path='/speaker' component={Speaker} exact />
