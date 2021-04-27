@@ -13,14 +13,14 @@ function DashChartNav() {
             <li className='dashchart-nav-item'>
                 <NavLink
                     className='dashchart-nav-link' activeClassName='dashchart-nav-link--active'
-                    to='/chart-stat/monthly-stat'>
+                    to='/chart-stat/monthly-stat' exact>
                     Monthly
                 </NavLink>
             </li>
             <li className='dashchart-nav-item'>
                 <NavLink
                     className='dashchart-nav-link' activeClassName='dashchart-nav-link--active'
-                    to='/chart-stat/yearly-stat'>
+                    to='/chart-stat/yearly-stat' exact>
                     Yearly
                 </NavLink>
             </li>

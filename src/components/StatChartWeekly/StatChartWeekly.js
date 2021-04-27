@@ -4,26 +4,34 @@ import { useLocation } from 'react-router-dom'
 import { client } from '../../utils/api-client'
 import { useQuery } from 'react-query'
 
-function StatChart() {
+function StatChartWeekly() {
     const { pathname } = useLocation()
-    let date = new Date().getFullYear
-    
+
+    function findStatus(pathname) {
+        if (pathname === '/chart-stat') {
+            return 'week'
+        } else {
+            return ''
+        }
+    }
+
     const { data: graph } = useQuery({
-        queryKey: 'chart-stat',
-        queryFn: () => client(`year/${date}`),
+        queryKey: 'chart-stat-week',
+        queryFn: () => {
+            return client(findStatus(pathname))
+        },
     })
 
-    let labelData = graph && graph.map((d) => d.month_bg)
-    let datasetData = graph && graph.map((d) => d.stat)
+    let labelData = graph && graph.map((item) => item.week)
+    let datasetData = graph && graph.map((item) => item.entery_sum)
 
     const data = {
         labels: labelData,
         datasets: [
             {
-                label: 'Trend',
+                label: 'So\'nggi hafta',
                 fill: false,
                 data: datasetData,
-
                 borderColor: ['rgba(81, 212, 170, 0.8'],
                 backgroundColor: ['rgba(81, 212, 170, 0.8'],
                 pointBackgroundColor: ['rgb(81, 175, 170'],
@@ -38,4 +46,4 @@ function StatChart() {
     )
 }
 
-export default StatChart
+export default StatChartWeekly
