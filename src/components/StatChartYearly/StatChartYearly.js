@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2'
 import { useLocation } from 'react-router-dom'
 import { client } from '../../utils/api-client'
 import { useQuery } from 'react-query'
-import moment from 'moment'
 
 function StatChartYearly() {
     const { pathname } = useLocation()
@@ -23,10 +22,10 @@ function StatChartYearly() {
             return client(findStatus(pathname))
         },
     })
- 
+
     let labelData = graph && graph.map((item) => item.month_bg)
     let datasetData = graph && graph.map((item) => item.stat)
-  
+
     const data = {
         labels: labelData,
         datasets: [

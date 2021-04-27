@@ -8,11 +8,14 @@ import './StatChartMonthly.scss'
 
 function StatChartMonthly() {
     const { pathname } = useLocation()
+
     let dateMonth = moment(new Date()).format('M')
     let dateYear = new Date().getFullYear()
+
     const [month, setMonth] = React.useState(dateMonth)
 
     let monthLimit = new Date().getMonth() + 1
+
     const MONTHS = [
         'January',
         'February',
@@ -37,6 +40,7 @@ function StatChartMonthly() {
             return ''
         }
     }
+    
     const fetchProjects = (month) => {
         return client(findStatus(pathname) + month)
     }
