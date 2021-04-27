@@ -76,7 +76,7 @@ function StatChartMonthly() {
     return (
         <>
             <select className='month-select' name='user_month' onClick={handleChange}>
-                <option defaultValue={null} selected>
+                <option defaultValue={null} disabled>
                     Select month
                 </option>
                 {needMonths.map((n, i) => (

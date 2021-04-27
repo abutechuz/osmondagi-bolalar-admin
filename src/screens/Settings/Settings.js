@@ -1,50 +1,29 @@
+import './Settings.scss'
 import React from 'react'
-import './Login.scss'
-import useToken from '../../hooks/useToken'
 import { client } from '../../utils/api-client'
 
-function Login() {
-    const [setToken] = useToken(true)
-
+function Settings() {
     function handleSubmit(evt) {
         evt.preventDefault()
 
-        const { username, password } = evt.target.elements
-
-        client(
-            `login?username=${username.value.trim()}&password=${password.value.trim()}`
-        ).then((data) => setToken(data.jwt))
+        const { adminName, adminPassword } = evt.target.elements
+        console.log(adminName, adminPassword)
+        client('createadmin', {
+            data: {
+                username: adminName.value.trim(),
+                password: adminPassword.value.trim(),
+            },
+        }).then((data) => console.log(data))
     }
-
     return (
-        <div className='login-wrapper'>
+        <div className='settings-section stats'>
             <form
-                className='login-form'
+                className='settings-form'
                 method='POST'
                 onSubmit={handleSubmit}
                 autoComplete='off'
                 spellCheck='false'>
-                <h2 className='login-form__heading'>
-                    <svg
-                        width={30}
-                        height={40}
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 490.667 490.667'>
-                        <path
-                            fill='white'
-                            d='M437.333,0H202.667c-29.397,0-53.333,23.936-53.333,53.333v128c0,5.888,4.779,10.667,10.667,10.667 s10.667-4.779,10.667-10.667v-128c0-17.643,14.357-32,32-32h234.667c17.643,0,32,14.357,32,32v384c0,17.643-14.357,32-32,32 H202.667c-17.643,0-32-14.357-32-32v-128c0-5.888-4.779-10.667-10.667-10.667s-10.667,4.779-10.667,10.667v128 c0,29.397,23.936,53.333,53.333,53.333h234.667c29.397,0,53.333-23.936,53.333-53.333v-384C490.667,23.936,466.731,0,437.333,0z'
-                        />
-                        <path
-                            fill='white'
-                            d='M352,234.667H10.667C4.779,234.667,0,239.445,0,245.333S4.779,256,10.667,256H352c5.888,0,10.667-4.779,10.667-10.667 S357.888,234.667,352,234.667z'
-                        />
-                        <path
-                            fill='white'
-                            d='M359.531,237.824l-64-64c-4.16-4.16-10.923-4.16-15.083,0s-4.16,10.923,0,15.083l56.448,56.448l-56.448,56.448 c-4.16,4.16-4.16,10.923,0,15.083c2.091,2.069,4.821,3.115,7.552,3.115s5.461-1.045,7.531-3.093l64-64 C363.691,248.747,363.691,241.984,359.531,237.824z'
-                        />
-                    </svg>
-                    <span className='login-form__text'>Login</span>
-                </h2>
+                <h2 className='settings-form__heading'>Create User</h2>
                 <div className='form-input__wrapper'>
                     <label className='form-input__label' htmlFor='username'>
                         Username
@@ -71,8 +50,8 @@ function Login() {
                         <input
                             className='form-input'
                             type='text'
-                            id='username'
-                            name='username'
+                            id='adminName'
+                            name='adminName'
                             placeholder='Username'
                             required
                         />
@@ -96,17 +75,17 @@ function Login() {
                         <input
                             className='form-input'
                             type='password'
-                            id='password'
-                            name='password'
+                            id='adminPassword'
+                            name='adminPassword'
                             placeholder='Password'
                             required
                         />
                     </div>
-                    <button className='login-submit__btn'>Enter</button>
+                    <button className='settings-submit__btn'>Create</button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default Login
+export default Settings

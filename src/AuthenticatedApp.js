@@ -8,6 +8,7 @@ import Speaker from './screens/Speaker/Speaker'
 import Posts from './screens/Posts/Posts'
 import User from './screens/User/User'
 import DashChart from './screens/DashChart/DashChart'
+import Settings from './screens/Settings/Settings'
 
 function AuthenticatedApp() {
     return (
@@ -24,6 +25,7 @@ function AuthenticatedApp() {
                         <Route path='/speaker' component={Speaker} exact />
                         <Route path='/posts' component={Posts} exact />
                         <Route path='/users' component={User} exact />
+                        <Route path='/settings' component={Settings} exact />
                     </Switch>
                 </div>
             </div>

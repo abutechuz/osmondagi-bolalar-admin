@@ -19,7 +19,7 @@ function UserTable() {
         () => fetchProjects(page),
         { keepPreviousData: true }
     )
-
+console.log(data)
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
     }, [data])
