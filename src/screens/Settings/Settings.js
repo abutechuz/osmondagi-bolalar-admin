@@ -7,7 +7,7 @@ function Settings() {
         evt.preventDefault()
 
         const { adminName, adminPassword } = evt.target.elements
-        console.log(adminName, adminPassword)
+
         client('createadmin', {
             data: {
                 username: adminName.value.trim(),
