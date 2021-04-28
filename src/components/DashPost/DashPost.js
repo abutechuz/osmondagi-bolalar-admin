@@ -4,7 +4,7 @@ import "./DashPost.scss";
 import { FileSvg } from "../Svgs/Svgs";
 import { useQuery } from "react-query";
 import { client } from "../../utils/api-client";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function DashPosts() {
   let region = [];
@@ -24,33 +24,33 @@ function DashPosts() {
     queryKey: "age",
     queryFn: () => client("age"),
   });
-
+  
   const postText = useRef();
   const image = useRef();
   return (
     <>
       <section className="post">
-        <div className="post__container">
           <form
             onSubmit={async (evt) => {
-              evt.preventDefault();
-              var formData = new FormData();
-
-              await fetch("http://192.168.1.233:4000/post", {
-                method: "post",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  gender: gender, 
-                  profession: profs,
-                  regions: region,
-                  age: ages,
-                }),
+              evt.preventDefault()
+              const formData = new FormData()
+              formData.append("gender", gender)
+              formData.append("profession", profs)
+              formData.append("regions", region)
+              formData.append("age",ages)
+              formData.append("img", image.current.files[0])
+              console.log(formData);
+              const x = await fetch("http://192.168.1.233:4000/post", {
+                method: "POST",
+                body: formData,
               })
+              console.log(x)
             }}
             className="post__form"
-            action="/"
+            action=""
             method="post"
           >
+          <div className="post__container">
             <div className="post__inner">
               <label className="post__label-file">
                 <input
@@ -74,11 +74,12 @@ function DashPosts() {
               rows="5"
               placeholder="body"
             ></textarea>
-          </form>
         </div>
+          </form>
 
         {/* Region list */}
-        <div className="post__target target">
+        {/* <div className="post__target target">
+          <div className="target__wrapper">
           <button
             className="target__all-btn"
             type="button"
@@ -87,10 +88,23 @@ function DashPosts() {
               profs = [];
               region = [];
               gender = null;
-            }}
-          >
-            All
-          </button>
+            }}>All</button>
+
+            <label className="target__gender target__gender--m">
+              <span>Male</span>
+              <input className="target__gender-checkbox" type="radio" name="gender" value="m" onClick={(e)=> {
+                gender = e.target.value
+                console.log(gender)
+              }}/>
+            </label>
+            <label className="target__gender target__gender--f">
+              <span>Fmale</span>
+              <input className="target__gender-checkbox" type="radio" name="gender" value="f" onClick={(e)=> {
+                gender = e.target.value
+                console.log(gender)
+              }}/>
+            </label>
+          </div>
           <div className="target__inner">
             <button
               className="target__btn all-btn"
@@ -105,14 +119,21 @@ function DashPosts() {
             <ul className="target__list">
               {regSuccess &&
                 reg?.map((e) => (
-                  <li className="target__item" key={Math.random()}>
-                    <button
+                  <li className="target__item" key={Math.random()}> */}
+                    {/* {setSalom(e.dbName)} */}
+                    {/* <button
                       className="target__bnt"
                       data-name={e?.dbName}
                       type="button"
                       onClick={(evt) => {
-                        region.push(evt.target.dataset.name);
-                        
+                        if (!region.includes(evt.target.dataset.name)) {
+                          region.push(evt.target.dataset.name);
+                          evt.target.classList.add('target__btn-actv')
+                        } else if (region.includes(evt.target.dataset.name)) {
+                          const indexItem = region.findIndex((item) => item === evt.target.dataset.name)
+                          region.splice(indexItem, 1)
+                          evt.target.classList.remove('target__btn-actv')
+                        }
                       }}
                     >
                       {e?.name}
@@ -120,9 +141,9 @@ function DashPosts() {
                   </li>
                 ))}
             </ul>
-          </div>
+          </div> */}
           {/* profession list */}
-          <div className="target__inner">
+          {/* <div className="target__inner">
             <button
               className="target__btn all-btn"
               type="button"
@@ -141,7 +162,14 @@ function DashPosts() {
                       data-name={e?.dbName}
                       type="button"
                       onClick={(evt) => {
-                        profs.push(evt.target.dataset.name);
+                        if (!profs.includes(evt.target.dataset.name)) {
+                          profs.push(evt.target.dataset.name);
+                          evt.target.classList.add('target__btn-actv')
+                        } else if (profs.includes(evt.target.dataset.name)) {
+                          const indexItem = profs.findIndex((item) => item === evt.target.dataset.name)
+                          profs.splice(indexItem, 1)
+                          evt.target.classList.remove('target__btn-actv')
+                        }
                       }}
                     >
                       {e?.text}
@@ -149,9 +177,9 @@ function DashPosts() {
                   </li>
                 ))}
             </ul>
-          </div>
+          </div> */}
           {/* age list */}
-          <div className="target__inner">
+          {/* <div className="target__inner">
             <button
               className="target__btn all-btn"
               type="button"
@@ -170,7 +198,14 @@ function DashPosts() {
                       data-name={i + 1}
                       type="button"
                       onClick={(evt) => {
-                        ages.push(Number(evt.target.dataset.name));
+                        if (!ages.includes(evt.target.dataset.name)) {
+                          ages.push(evt.target.dataset.name);
+                          evt.target.classList.add('target__btn-actv')
+                        } else if (ages.includes(evt.target.dataset.name)) {
+                          const indexItem = ages.findIndex((item) => item === evt.target.dataset.name)
+                          ages.splice(indexItem, 1)
+                          evt.target.classList.remove('target__btn-actv')
+                        }
                       }}
                     >
                       {e?.desc}
@@ -178,44 +213,8 @@ function DashPosts() {
                   </li>
                 ))}
             </ul>
-          </div>
-
-          <div className="target__inner">
-            <button
-              className="target__btn all-btn"
-              type="button"
-              onClick={(evt) => {
-                ages = [];
-              }}
-            >
-              all
-            </button>
-            <ul className="target__list">
-              <li className="target__item">
-                <button
-                  className="target__bnt"
-                  type="button"
-                  onClick={(e) => {
-                    gender = "m";
-                  }}
-                >
-                  M
-                </button>
-              </li>
-              <li className="target__item">
-                <button
-                  className="target__bnt"
-                  type="button"
-                  onClick={(e) => {
-                    gender = "f";
-                  }}
-                >
-                  F
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
+          </div> 
+        </div>*/}
       </section>
     </>
   );
