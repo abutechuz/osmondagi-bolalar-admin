@@ -18,13 +18,13 @@ function StatChartYearly() {
         }
     }
 
-    const fetchProjects = (year) => {
+    const fetchProjects = () => {
         return client(findStatus(pathname))
     }
 
     const { data: graph } = useQuery(
         ['chart-stat-year', year],
-        () => fetchProjects(year),
+        () => fetchProjects(),
         { keepPreviousData: true }
     )
 
