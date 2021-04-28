@@ -72,12 +72,20 @@
     &:hover::before {
         display: block;
     }
-    &:hover > .nav__link-svg > path {
+    &:hover .nav__link-svg path {
         fill: #ffd369;
+        color: #ffd369;
     }
     &:hover {
         color: #dde2ff;
     }
+}
+
+.nav__link-svg path {
+    fill: #60626e;
+}
+.nav__link-svg {
+    color: #60626e;
 }
 
 .nav__link--active {
@@ -87,8 +95,11 @@
         display: block;
     }
 
-    > .nav__link-svg > path {
+    .nav__link-svg path {
         fill: #ffd369;
+    }
+    .nav__link-svg {
+        color: #ffd369;
     }
 }
 

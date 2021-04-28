@@ -10,7 +10,6 @@ function UserTable() {
     const [elements, setElements] = React.useState(0)
 
     const elList = React.useRef(null)
-    const elItem = React.useRef(null)
 
     const fetchProjects = (page = 0) => client('users?limit=5&page=' + page)
 
@@ -19,20 +18,14 @@ function UserTable() {
         () => fetchProjects(page),
         { keepPreviousData: true }
     )
-console.log(data)
+    console.log(data)
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
     }, [data])
 
-    function handleDoubleClick(evt) {
-        client('userscore', { data: { user_tg_id: evt.target.id } })
-    }
-
     return (
         <div className='user-table__wrapper'>
-            <h2 className='user-section__heading title'>
-                Barcha user uchun Takliflar
-            </h2>
+            <h2 className='user-section__heading title'>Foydalanuchilar</h2>
             <table className='user-table'>
                 <thead className='user-table__head'>
                     <tr className='user-table__head-tr'>
@@ -90,13 +83,6 @@ console.log(data)
                                     {user.region ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-score'>
-                                    <button
-                                        className='user-table__score-clear'
-                                        id={user.user_tg_id}
-                                        onDoubleClick={handleDoubleClick}
-                                        ref={elItem}>
-                                        &#128465;
-                                    </button>
                                     {user.score ?? '-'}
                                 </td>
                             </tr>
