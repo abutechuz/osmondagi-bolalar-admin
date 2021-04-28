@@ -10,7 +10,7 @@ function DashPosts() {
   let region = [];
   let profs = [];
   let ages = [];
-  let gender = null;
+  let gender = [];
 
   const { data: reg, isSuccess: regSuccess } = useQuery({
     queryKey: "regions",
@@ -39,8 +39,8 @@ function DashPosts() {
             formData.append("regions", JSON.stringify(region));
             formData.append("age", JSON.stringify(ages));
             formData.append("img", image.current.files[0]);
-            console.log(image.current.files[0]);
-            formData.append("gender", 'm');
+            // console.log(image.current.files[0]);
+            // formData.append("gender", 'm');
             console.log(formData);
             const x = await fetch("http://192.168.1.233:4000/post", {
               method: "POST",
@@ -141,14 +141,14 @@ function DashPosts() {
                     m
                     <input type="checkbox" value="m" onChange={e => {
                     e.target.checked === true ? (
-                        gender = e.target.value
-                      ) : gender = null
+                        gender = [e.target.value]
+                      ) : gender = ''
                     }}/>
                     f
                     <input type="checkbox" value="f" onChange={e => {
                     e.target.checked === true ? (
-                        gender = e.target.value
-                      ) : gender = null
+                        gender = [e.target.value]
+                      ) : gender = ''
                     }}/>
                 </li>
               </ul>
