@@ -59,8 +59,7 @@ function DashPosts() {
                   ref={image}
                   className="post__input-file visually-hidden"
                   type="file"
-                  name="title"
-                  placeholder="title"
+                  name="poster"
                 />
                 <span>
                   <FileSvg />
