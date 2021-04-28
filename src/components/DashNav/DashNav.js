@@ -1,6 +1,16 @@
 import './DashNav.scss'
 import oBLogo from '../../assets/img/obLogo.png'
-import { Statistik, Seting } from '../Svgs/Svgs'
+import {
+    Statistik,
+    Seting,
+    IconGraph,
+    IconQuestion,
+    IconOffer,
+    IconSpeakers,
+    IconUsers,
+    IconPost,
+    IconWebsite,
+} from '../Svgs/Svgs'
 import { NavLink } from 'react-router-dom'
 
 function DashNav() {
@@ -36,7 +46,7 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/chart-stat'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconGraph className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Graph
                                     </span>
@@ -47,7 +57,7 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/question'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconQuestion className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Savollar
                                     </span>
@@ -58,7 +68,7 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/offer'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconOffer className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Takliflar
                                     </span>
@@ -69,7 +79,7 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/speaker'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconSpeakers className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Speakerlar
                                     </span>
@@ -80,7 +90,7 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/users'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconUsers className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Foydalanuvchilar
                                     </span>
@@ -91,9 +101,20 @@ function DashNav() {
                                     className='nav__link'
                                     activeClassName='nav__link--active'
                                     to='/posts'>
-                                    <Statistik className='nav__link-svg' />
+                                    <IconPost className='nav__link-svg' />
                                     <span className='nav__link-span'>
                                         Posts
+                                    </span>
+                                </NavLink>
+                            </li>
+                            <li className='nav__item'>
+                                <NavLink
+                                    className='nav__link'
+                                    activeClassName='nav__link--active'
+                                    to='/webdash'>
+                                    <IconWebsite className='nav__link-svg' />
+                                    <span className='nav__link-span'>
+                                        Website Dashboard
                                     </span>
                                 </NavLink>
                             </li>
