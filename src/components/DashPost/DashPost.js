@@ -74,10 +74,10 @@ function DashPosts() {
               rows="5"
               placeholder="body"
             ></textarea>
+            <button type="submit">Send</button>
           </div>
 
           <div className="post__target">
-
             <div className="post__target-reg traget">
               <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
                 region = []
@@ -86,14 +86,15 @@ function DashPosts() {
               <ul className="targe__list">
                 {regSuccess && reg.map( e => (
                   <li className="targe__item" key={Math.random()}>
-                    <span>{e?.dbName}</span>
-
-                  <input className="targe__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
-                    e.target.checked === true ? (
-                      region.push(e.target.value)
-                    ) : region.splice(region.indexOf(e.target.value), 1)
+                    <label >
+                      <span>{e?.dbName}</span>
+                      <input className="targe__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                      e.target.checked === true ? (
+                        region.push(e.target.value)
+                      ) : region.splice(region.indexOf(e.target.value), 1)
                     console.log(region)
                   }}/>
+                    </label>
                 </li>
                 ))}
               </ul>
@@ -107,13 +108,15 @@ function DashPosts() {
               <ul className="target__list">
                 {profSuccess && prof.map( e => (
                   <li className="target__item" key={Math.random()}>
+                  <label>
                     <span>{e?.text}</span>
-                  <input className="target__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
-                    e.target.checked === true ? (
-                      profs.push(e.target.value)
-                    ) : profs.splice(profs.indexOf(e.target.value), 1)
-                    console.log(profs)
-                  }}/>
+                    <input className="target__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                      e.target.checked === true ? (
+                        profs.push(e.target.value)
+                      ) : profs.splice(profs.indexOf(e.target.value), 1)
+                      console.log(profs)
+                    }}/>
+                  </label>
                 </li>
                 ))}
               </ul>
@@ -127,34 +130,42 @@ function DashPosts() {
               <ul className="target__list">
                 {ageSuccess && age.map( (e, i) => (
                   <li className="target__item" key={Math.random()}>
+                  <label>
                     <span>{e?.desc}</span>
-                  <input className="target__checkbox" type="checkbox" name="reg" value={i+1} onChange={e => {
-                      e.target.checked === true ? (
-                        ages.push(e.target.value - 0  )
-                      ) : ages.splice(ages.indexOf(e.target.value), 1)
-                      console.log(ages)
-                  }} />
+                    <input className="target__checkbox" type="checkbox" name="reg" value={i+1} onChange={e => {
+                        e.target.checked === true ? (
+                          ages.push(e.target.value - 0  )
+                        ) : ages.splice(ages.indexOf(e.target.value), 1)
+                        console.log(ages)
+                    }} />
+                  </label>
                 </li>
                 ))}
 
                 <li>
+                  <label>
                     m
                     <input type="checkbox" value="m" onChange={e => {
                     e.target.checked === true ? (
                         gender = [e.target.value]
                       ) : gender = ''
                     }}/>
-                    f
-                    <input type="checkbox" value="f" onChange={e => {
-                    e.target.checked === true ? (
-                        gender = [e.target.value]
-                      ) : gender = ''
-                    }}/>
+                  </label>
+                </li>
+                <li>
+                 <label>
+                  f
+                  <input type="checkbox" value="f" onChange={e => {
+                  e.target.checked === true ? (
+                    gender = [e.target.value]
+                    ) : gender = ''
+                  }}/>
+                 </label>
                 </li>
               </ul>
             </div>
           </div>
-          <button type="submit">Send</button>
+          
         </form>
 
         {/* Region list */}

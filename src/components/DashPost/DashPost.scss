@@ -167,14 +167,17 @@
 // }
 
 .post {
-  overflow-y: auto;
-  height: 83vh;
+  // overflow-y: auto;
+  // height: 83vh;
 }
 .post__form {
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
 }
 .post__container {
-
+  display: flex;
 }
 .post__inner {
 
@@ -184,4 +187,8 @@
 }
 .post__textarea {
 
+}
+.post__target {
+  overflow-y: auto;
+  height: 83vh;
 }
