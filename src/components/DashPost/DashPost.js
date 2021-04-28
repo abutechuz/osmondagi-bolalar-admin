@@ -35,9 +35,9 @@ function DashPosts() {
             evt.preventDefault();
             const formData = new FormData();
             formData.append("gender", gender);
-            formData.append("profession", profs);
-            formData.append("regions", region);
-            formData.append("age", ages);
+            formData.append("profession", JSON.stringify(profs));
+            formData.append("regions", JSON.stringify(region));
+            formData.append("age", JSON.stringify(ages));
             formData.append("img", image.current.files[0]);
             console.log(image.current.files[0]);
             formData.append("gender", 'm');
@@ -137,6 +137,21 @@ function DashPosts() {
                   }} />
                 </li>
                 ))}
+
+                <li>
+                    m
+                    <input type="checkbox" value="m" onChange={e => {
+                    e.target.checked === true ? (
+                        gender = e.target.value
+                      ) : gender = null
+                    }}/>
+                    f
+                    <input type="checkbox" value="f" onChange={e => {
+                    e.target.checked === true ? (
+                        gender = e.target.value
+                      ) : gender = null
+                    }}/>
+                </li>
               </ul>
             </div>
           </div>
