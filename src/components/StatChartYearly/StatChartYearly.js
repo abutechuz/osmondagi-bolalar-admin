@@ -8,20 +8,32 @@ function StatChartYearly() {
     const { pathname } = useLocation()
     let dateYear = new Date().getFullYear()
 
+    const [year, setYear] = React.useState(dateYear)
+
     function findStatus(pathname) {
         if (pathname === '/chart-stat/yearly-stat') {
-            return 'year/' + dateYear
+            return 'year/' + year
         } else {
             return ''
         }
     }
 
-    const { data: graph } = useQuery({
-        queryKey: 'chart-stat-year',
-        queryFn: () => {
-            return client(findStatus(pathname))
-        },
-    })
+    const fetchProjects = (year) => {
+        return client(findStatus(pathname))
+    }
+
+    const { data: graph } = useQuery(
+        ['chart-stat-year', year],
+        () => fetchProjects(year),
+        { keepPreviousData: true }
+    )
+
+    const years = [dateYear - 2, dateYear - 1, dateYear]
+
+    function handleYearChange(evt) {
+        console.log(evt.target.value)
+        setYear(evt.target.value)
+    }
 
     let labelData = graph && graph.map((item) => item.month_bg)
     let datasetData = graph && graph.map((item) => item.stat)
@@ -30,7 +42,7 @@ function StatChartYearly() {
         labels: labelData,
         datasets: [
             {
-                label: dateYear,
+                label: year,
                 fill: false,
                 data: datasetData,
                 borderColor: ['#fc8621'],
@@ -42,6 +54,17 @@ function StatChartYearly() {
     }
     return (
         <>
+            <select
+                className='month-select'
+                name='user_year'
+                onClick={handleYearChange}>
+                <option defaultValue={year}>Select year</option>
+                {years.map((n, i) => (
+                    <option value={n} key={i + n}>
+                        {n}
+                    </option>
+                ))}
+            </select>
             <Line data={data} width={500} />
         </>
     )
