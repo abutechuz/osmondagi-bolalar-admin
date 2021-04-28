@@ -24,32 +24,34 @@ function DashPosts() {
     queryKey: "age",
     queryFn: () => client("age"),
   });
-  
+
   const postText = useRef();
   const image = useRef();
   return (
     <>
       <section className="post">
-          <form
-            onSubmit={async (evt) => {
-              evt.preventDefault()
-              const formData = new FormData()
-              formData.append("gender", gender)
-              formData.append("profession", profs)
-              formData.append("regions", region)
-              formData.append("age",ages)
-              formData.append("img", image.current.files[0])
-              console.log(formData);
-              const x = await fetch("http://192.168.1.233:4000/post", {
-                method: "POST",
-                body: formData,
-              })
-              console.log(x)
-            }}
-            className="post__form"
-            action=""
-            method="post"
-          >
+        <form
+          onSubmit={async (evt) => {
+            evt.preventDefault();
+            const formData = new FormData();
+            formData.append("gender", gender);
+            formData.append("profession", profs);
+            formData.append("regions", region);
+            formData.append("age", ages);
+            formData.append("img", image.current.files[0]);
+            console.log(image.current.files[0]);
+            formData.append("gender", 'm');
+            console.log(formData);
+            const x = await fetch("http://192.168.1.233:4000/post", {
+              method: "POST",
+              body: formData,
+            });
+            console.log(x);
+          }}
+          className="post__form"
+          action=""
+          method="post"
+        >
           <div className="post__container">
             <div className="post__inner">
               <label className="post__label-file">
@@ -64,7 +66,6 @@ function DashPosts() {
                   <FileSvg />
                 </span>
               </label>
-              <button type="submit">Send</button>
             </div>
             <textarea
               ref={postText}
@@ -74,8 +75,73 @@ function DashPosts() {
               rows="5"
               placeholder="body"
             ></textarea>
-        </div>
-          </form>
+          </div>
+
+          <div className="post__target">
+
+            <div className="post__target-reg traget">
+              <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
+                region = []
+                console.log(region)
+              }} />
+              <ul className="targe__list">
+                {regSuccess && reg.map( e => (
+                  <li className="targe__item" key={Math.random()}>
+                    <span>{e?.dbName}</span>
+
+                  <input className="targe__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                    e.target.checked === true ? (
+                      region.push(e.target.value)
+                    ) : region.splice(region.indexOf(e.target.value), 1)
+                    console.log(region)
+                  }}/>
+                </li>
+                ))}
+              </ul>
+            </div>
+
+          <div className="post__reg-prof target">
+            <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
+              profs = []
+              console.log(profs)
+            }}/>
+              <ul className="target__list">
+                {profSuccess && prof.map( e => (
+                  <li className="target__item" key={Math.random()}>
+                    <span>{e?.text}</span>
+                  <input className="target__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                    e.target.checked === true ? (
+                      profs.push(e.target.value)
+                    ) : profs.splice(profs.indexOf(e.target.value), 1)
+                    console.log(profs)
+                  }}/>
+                </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="post__reg-prof target">
+            <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
+              ages = []
+              console.log(ages)
+            }}/>
+              <ul className="target__list">
+                {ageSuccess && age.map( (e, i) => (
+                  <li className="target__item" key={Math.random()}>
+                    <span>{e?.desc}</span>
+                  <input className="target__checkbox" type="checkbox" name="reg" value={i+1} onChange={e => {
+                      e.target.checked === true ? (
+                        ages.push(e.target.value - 0  )
+                      ) : ages.splice(ages.indexOf(e.target.value), 1)
+                      console.log(ages)
+                  }} />
+                </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <button type="submit">Send</button>
+        </form>
 
         {/* Region list */}
         {/* <div className="post__target target">
@@ -120,8 +186,8 @@ function DashPosts() {
               {regSuccess &&
                 reg?.map((e) => (
                   <li className="target__item" key={Math.random()}> */}
-                    {/* {setSalom(e.dbName)} */}
-                    {/* <button
+        {/* {setSalom(e.dbName)} */}
+        {/* <button
                       className="target__bnt"
                       data-name={e?.dbName}
                       type="button"
@@ -142,8 +208,8 @@ function DashPosts() {
                 ))}
             </ul>
           </div> */}
-          {/* profession list */}
-          {/* <div className="target__inner">
+        {/* profession list */}
+        {/* <div className="target__inner">
             <button
               className="target__btn all-btn"
               type="button"
@@ -178,8 +244,8 @@ function DashPosts() {
                 ))}
             </ul>
           </div> */}
-          {/* age list */}
-          {/* <div className="target__inner">
+        {/* age list */}
+        {/* <div className="target__inner">
             <button
               className="target__btn all-btn"
               type="button"
