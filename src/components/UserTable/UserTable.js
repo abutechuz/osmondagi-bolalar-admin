@@ -25,7 +25,7 @@ function UserTable() {
 
     return (
         <div className='user-table__wrapper'>
-            <h2 className='user-section__heading title'>Foydalanuchilar</h2>
+            <h2 className='user-section__heading title'>Foydalanuvchilar</h2>
             <table className='user-table'>
                 <thead className='user-table__head'>
                     <tr className='user-table__head-tr'>
@@ -52,6 +52,12 @@ function UserTable() {
                         </th>
                         <th className='user-table__head-th user-table__head-th-score'>
                             Score
+                        </th>
+                        <th className='user-table__head-th user-table__head-th-score'>
+                            Prize
+                        </th>
+                        <th className='user-table__head-th user-table__head-th-score'>
+                            Send Prize
                         </th>
                     </tr>
                 </thead>
@@ -84,6 +90,16 @@ function UserTable() {
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-score'>
                                     {user.score ?? '-'}
+                                </td>
+                                <td className='user-table__body-td user-table__body-td-score'>
+                                    <select class='user-table__prize-select' name='user_prize_select' id=''>
+                                        <option defaultValue={null}>prize</option>
+                                        <option value=''>ishton</option>
+                                        <option value=''>futbolka</option>
+                                    </select>
+                                </td>
+                                <td className='user-table__body-td user-table__body-td-score'>
+                                   <button className="user-table__send-button" type='button'>Send</button>
                                 </td>
                             </tr>
                         ))}

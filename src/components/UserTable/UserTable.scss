@@ -1,5 +1,5 @@
 .user-table__wrapper {
-    width: 950px;
+    width: 1050px;
     border: 1px solid #dfe0eb;
     border-radius: 3px;
     background-color: #fff;
@@ -60,5 +60,29 @@
 
     &:hover {
         opacity: 0.9;
+    }
+}
+
+.user-table__prize-select {
+    padding: 5px;
+    outline: 0;
+    border: 1px solid #ffd369;
+    border-radius: 3px;
+}
+
+.user-table__send-button {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background-color: #ffd369;
+    border-radius: 3px;
+    overflow: hidden;
+
+    &:hover{
+        box-shadow: 0 0 3px 1px #ffd369;
     }
 }
