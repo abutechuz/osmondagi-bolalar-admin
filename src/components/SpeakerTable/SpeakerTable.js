@@ -66,7 +66,7 @@ function SpeakerTable() {
                                     {speaker.surname ?? '-'}
                                 </td>
                                 <td className='speaker-table__body-td speaker-table__body-td-profession'>
-                                    {speaker.profession ?? '-'}
+                                    {speaker?.profession?.text ?? '-'}
                                 </td>
                                 <td className='speaker-table__body-td speaker-table__body-td-age'>
                                     {speaker.message ?? '-'}
