@@ -22,6 +22,10 @@ function QuestionTable() {
     React.useEffect(() => {
         setElements(elList.current.childElementCount)
     }, [data])
+
+    function handleClickReplyBtn(evt) {
+
+    }
     return (
         <div className='question-list__wrapper'>
             <h2 className='question-section__heading title'>Barcha Savollar</h2>
@@ -43,6 +47,14 @@ function QuestionTable() {
                             <div className='question-list__question'>
                                 {q?.question}
                             </div>
+                            <button
+                                className='speaker__reply-btn'
+                                type='button'
+                                onClick={handleClickReplyBtn}
+                                data-reply={'birikkiuch'}
+                                >
+                                Reply
+                            </button>
                         </li>
                     ))}
             </ul>

@@ -11,10 +11,13 @@ function DashMain() {
         queryKey: 'gender',
         queryFn: () => client('gender'),
     })
+
     const { data: users, isSuccess: isSuccessUser } = useQuery({
-        queryKey: 'users',
-        queryFn: () => client('users'),
+        queryKey: 'userscount',
+        queryFn: () => client('userscount'),
     })
+
+    console.log(users)
 
     return (
         <>
@@ -38,7 +41,7 @@ function DashMain() {
                             </div>
                             <div className='genral-stat__item-botom'>
                                 <span className='genral-stat__item-span'>
-                                    {isSuccessUser && users?.length + ' people'}
+                                    {isSuccessUser && users?.count + ' people'}
                                 </span>
                             </div>
                         </li>

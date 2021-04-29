@@ -65,6 +65,19 @@
     line-height: 20px;
     letter-spacing: 0.2px;
     color: #252733;
+    margin-right: 10px;
+}
+
+.speaker__reply-btn {
+    margin-left: auto;
+    color: #252733;
+    background-color: #fff;
+    border: 1px solid #ffd369;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.speaker__reply-btn:hover {
+    box-shadow: 0 0 3px 1px #ffd369;
 }
 
 .question-list::-webkit-scrollbar {
