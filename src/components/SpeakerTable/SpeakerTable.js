@@ -43,10 +43,7 @@ function SpeakerTable() {
                             Kasbi
                         </th>
                         <th className='speaker-table__head-th speaker-table__head-th-age'>
-                            Yoshi
-                        </th>
-                        <th className='speaker-table__head-th speaker-table__head-th-work'>
-                            Ish joyi
+                            Nima uchun
                         </th>
                         <th className='speaker-table__head-th speaker-table__head-th-time'>
                             Tavsiya etilgan vaqt
@@ -72,11 +69,9 @@ function SpeakerTable() {
                                     {speaker.profession ?? '-'}
                                 </td>
                                 <td className='speaker-table__body-td speaker-table__body-td-age'>
-                                    {speaker.age ?? '-'}
+                                    {speaker.message ?? '-'}
                                 </td>
-                                <td className='speaker-table__body-td speaker-table__body-td-work'>
-                                    {speaker.workplace ?? '-'}
-                                </td>
+
                                 <td className='speaker-table__body-td speaker-table__body-td-time'>
                                     {speaker.time ?? '-'}
                                 </td>
