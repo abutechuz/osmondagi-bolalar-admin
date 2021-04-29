@@ -10,7 +10,7 @@ function DashPosts() {
   let region = [];
   let profs = [];
   let ages = [];
-  let gender = [];
+  let gender = '';
 
   const { data: reg, isSuccess: regSuccess } = useQuery({
     queryKey: "regions",
@@ -39,21 +39,18 @@ function DashPosts() {
             formData.append("regions", JSON.stringify(region));
             formData.append("age", JSON.stringify(ages));
             formData.append("img", image.current.files[0]);
-            // console.log(image.current.files[0]);
-            // formData.append("gender", 'm');
+            formData.append("text", postText.current.value);
             console.log(formData);
-            const x = await fetch("http://192.168.1.233:4000/post", {
+            await fetch("http://165.229:4000/post", {
               method: "POST",
               body: formData,
             });
-            console.log(x);
           }}
           className="post__form"
           action=""
           method="post"
         >
           <div className="post__container">
-            <div className="post__inner">
               <label className="post__label-file">
                 <input
                   ref={image}
@@ -61,34 +58,34 @@ function DashPosts() {
                   type="file"
                   name="poster"
                 />
-                <span>
                   <FileSvg />
-                </span>
               </label>
-            </div>
             <textarea
               ref={postText}
               className="post__textarea"
-              name="body"
+              name="text"
               cols="30"
               rows="5"
               placeholder="body"
             ></textarea>
-            <button type="submit">Send</button>
           </div>
 
           <div className="post__target">
-            <div className="post__target-reg traget">
-              <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
-                region = []
-                console.log(region)
-              }} />
-              <ul className="targe__list">
+            <div className="post__target-reg target">
+              <label className="target__checkbox--all">
+              <span>all</span>
+                <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
+                  region = []
+                  console.log(region)
+                }} />
+              </label>
+              <ul className="target__list">
                 {regSuccess && reg.map( e => (
-                  <li className="targe__item" key={Math.random()}>
-                    <label >
+                  <li className="target__item" key={Math.random()}>
+                    <label className="target__checkbox">
                       <span>{e?.dbName}</span>
-                      <input className="targe__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                      <input className="visually-hidden" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                        e.target.parentElement.classList.toggle('target__checkbox-active')
                       e.target.checked === true ? (
                         region.push(e.target.value)
                       ) : region.splice(region.indexOf(e.target.value), 1)
@@ -100,17 +97,20 @@ function DashPosts() {
               </ul>
             </div>
 
-          <div className="post__reg-prof target">
-            <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
-              profs = []
-              console.log(profs)
-            }}/>
+          <div className="post__target-prof target">
+                <label className="target__checkbox--all">
+                  <span>all</span>
+                  <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
+                  profs = []
+                  }}/>
+              </label>
               <ul className="target__list">
                 {profSuccess && prof.map( e => (
                   <li className="target__item" key={Math.random()}>
-                  <label>
+                  <label className="target__checkbox">
                     <span>{e?.text}</span>
-                    <input className="target__checkbox" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                    <input className="visually-hidden" type="checkbox" name="reg" value={e?.dbName} onChange={e => {
+                      e.target.parentElement.classList.toggle('target__checkbox-active')
                       e.target.checked === true ? (
                         profs.push(e.target.value)
                       ) : profs.splice(profs.indexOf(e.target.value), 1)
@@ -122,17 +122,20 @@ function DashPosts() {
               </ul>
             </div>
 
-            <div className="post__reg-prof target">
-            <input className="target__all-btn" type="checkbox" name="reg" value="all" onChange={evt => {
-              ages = []
-              console.log(ages)
-            }}/>
+            <div className="post__target-age target">
+              <label className="target__checkbox--all">
+                <span>all</span>
+                <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
+                  ages = []
+                }}/>
+              </label>
               <ul className="target__list">
                 {ageSuccess && age.map( (e, i) => (
                   <li className="target__item" key={Math.random()}>
-                  <label>
+                  <label className="target__checkbox">
                     <span>{e?.desc}</span>
-                    <input className="target__checkbox" type="checkbox" name="reg" value={i+1} onChange={e => {
+                    <input className="visually-hidden" type="checkbox" name="reg" value={i+1} onChange={e => {
+                        e.target.parentElement.classList.toggle('target__checkbox-active')
                         e.target.checked === true ? (
                           ages.push(e.target.value - 0  )
                         ) : ages.splice(ages.indexOf(e.target.value), 1)
@@ -141,28 +144,31 @@ function DashPosts() {
                   </label>
                 </li>
                 ))}
-
-                <li>
-                  <label>
-                    m
-                    <input type="checkbox" value="m" onChange={e => {
+              </ul>
+              <div className="post__bottom">
+                <div className="post__bottom-inner">
+                  <label className="post__gender ">
+                    male
+                    <input className="visually-hidden" type="checkbox" value="m" onChange={e => {
+                      e.target.parentElement.classList.toggle('post__gender--active')
                     e.target.checked === true ? (
                         gender = [e.target.value]
                       ) : gender = ''
                     }}/>
                   </label>
-                </li>
-                <li>
-                 <label>
-                  f
-                  <input type="checkbox" value="f" onChange={e => {
-                  e.target.checked === true ? (
-                    gender = [e.target.value]
+
+                 <label className="post__gender">
+                  female
+                  <input className="visually-hidden" type="checkbox" value="f" onChange={e => {
+                    e.target.parentElement.classList.toggle('post__gender--active')
+                    e.target.checked === true ? (
+                      gender = [e.target.value]
                     ) : gender = ''
                   }}/>
                  </label>
-                </li>
-              </ul>
+                </div>    
+                <button className="post__send-btn" type="submit">Send</button>
+              </div>
             </div>
           </div>
           
