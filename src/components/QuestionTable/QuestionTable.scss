@@ -70,6 +70,7 @@
 
 .speaker__reply-btn {
     margin-left: auto;
+    padding: 5px;
     color: #252733;
     background-color: #fff;
     border: 1px solid #ffd369;
@@ -81,7 +82,7 @@
 }
 
 .question-list::-webkit-scrollbar {
-    width: 11px;
+    width: 6px;
 }
 
 .question-list {

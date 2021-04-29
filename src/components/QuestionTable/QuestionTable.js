@@ -3,6 +3,7 @@ import TableController from '../TableContoller/TableController'
 import './QuestionTable.scss'
 import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
+import ReplyModal from '../ReplyModal/ReplyModal'
 
 function QuestionTable() {
     const [page, setPage] = React.useState(1)
@@ -23,8 +24,10 @@ function QuestionTable() {
         setElements(elList.current.childElementCount)
     }, [data])
 
+    const [modal, setModal] = React.useState(false)
     function handleClickReplyBtn(evt) {
-
+        evt.preventDefault()
+        setModal(true)
     }
     return (
         <div className='question-list__wrapper'>
@@ -51,8 +54,7 @@ function QuestionTable() {
                                 className='speaker__reply-btn'
                                 type='button'
                                 onClick={handleClickReplyBtn}
-                                data-reply={'birikkiuch'}
-                                >
+                                data-reply={'birikkiuch'}>
                                 Reply
                             </button>
                         </li>
@@ -64,6 +66,8 @@ function QuestionTable() {
                 page={page}
                 numberLi={elements}
             />
+
+            <ReplyModal modal={modal} setModal={setModal}/>
         </div>
     )
 }
