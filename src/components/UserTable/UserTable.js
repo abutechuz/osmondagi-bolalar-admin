@@ -77,7 +77,7 @@ function UserTable() {
                                     {user.surname ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-profession'>
-                                    {user.profession ?? '-'}
+                                    {user.profession.text ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-birth'>
                                     {user.birthyear ?? '-'}
