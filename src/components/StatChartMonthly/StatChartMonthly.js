@@ -15,7 +15,7 @@ function StatChartMonthly() {
     const [month, setMonth] = React.useState(dateMonth)
     const [year, setYear] = React.useState(dateYear)
 
-    const years = [dateYear - 2, dateYear - 1, dateYear]
+    const years = [dateYear - 3, dateYear - 1, dateYear]
     const months = [
         { stat: 0, monthnumber: 1, month_sm: 'Jan', month_bg: 'January' },
         { stat: 0, monthnumber: 2, month_sm: 'Feb', month_bg: 'February' },

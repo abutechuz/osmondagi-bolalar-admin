@@ -33,8 +33,30 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-grow: 1;
+    height: 80vh;
+    overflow-y: scroll;
 }
+.nav__list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav__list {
+    scrollbar-width: thin;
+    scrollbar-color: #363740;
+}
+
+.nav__list::-webkit-scrollbar-track {
+    background: #363740;
+    border-radius: 6px;
+}
+
+.nav__list::-webkit-scrollbar-thumb {
+    background-color: #ffd369;
+    border-radius: 6px;
+    border: 3px solid #ffd369;
+}
+
 .nav__item {
     width: 100%;
 
