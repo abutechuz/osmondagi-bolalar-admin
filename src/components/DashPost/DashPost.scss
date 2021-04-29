@@ -167,8 +167,6 @@
 // }
 
 .post {
-  // overflow-y: auto;
-  // height: 83vh;
 }
 .post__form {
   display: flex;
@@ -178,17 +176,199 @@
 }
 .post__container {
   display: flex;
+  width: 63%;
 }
 .post__inner {
-
 }
 .post__label-file {
-
+  width: 50px;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 25px 10px 10px;
 }
 .post__textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+  border: none;
+  padding: 25px 10px 10px;
+  font-size: 20px;
+  border-left: 1px solid rgb(75, 75, 75);
+}
+.post__send-btn {
+  padding: 0;
+  border: none;
+  display: block;
+  background-color: #40A7E3FF;
+  color: #fff;
+  min-width: 200px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  border-radius: 2px;
 
+  &:hover {
+    background-color: #fff;
+    color: rgb(86, 195, 241);
+    border: 1px solid rgb(86, 195, 241);
+  }
+  &::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-image: url('../../assets/img/send.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 .post__target {
   overflow-y: auto;
   height: 83vh;
+  width: 37%;
+  padding: 15px 40px;
+  background-color: #fff;
+}
+.post__target-reg {
+
+}
+.post__target-prof {
+
+}
+.post__target-age {
+
+}
+.target { 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.target__checkbox--all {
+  background-color: #FFD369FF;
+  padding: 11px 13px;
+  min-width: 70px;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11.1442px;
+  line-height: 14px;
+  color: #404040;
+  text-align: center;
+  transition: all ease 0.1s;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(255, 188, 32);
+    color: rgb(255, 255, 255);
+  }
+}
+.target__checkbox--all-active {
+  background-color: #fff;
+  border: 1px solid #FFD369FF;
+  & > span {
+    color: rgb(43, 43, 43);
+    text-decoration: line-through;
+  }
+}
+
+.target__list { 
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+.target__item {
+  margin-bottom: 10px;
+  margin-right: 7px;
+  margin-left: 5px;
+}
+.target__checkbox {
+  padding: 3px 9px;
+  border-radius: 50px;
+  background-color: #70A6E8;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #4d89d3;
+  }
+}
+.target__checkbox > span {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 14px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.target__checkbox-active {
+  background-color: #fff;
+  border: 1px solid #70A6E8;
+  & > span {
+    text-decoration: line-through;
+    color: #70A6E8;
+  }
+}
+.post__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.post__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.post__gender {
+  margin-right: 15px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  background-color: #FFD369FF;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11.1442px;
+  line-height: 14px;
+  color: #404040;
+  text-align: center;
+  cursor: pointer;
+  border:1px solid transparent;
+
+  &:nth-child(2) {
+    background-color: #E786D7;
+    border:1px solid transparent;
+    color: #fff;
+  }
+}
+.post__gender--active {
+  background-color: #fff;
+  border: 1px solid #FFD369FF;
+  color: #404040;
+  text-decoration: line-through;
+  
+  &:nth-child(2) {
+    background-color: #fff;
+    border: 1px solid #E786D7;
+    color: #404040;
+    text-decoration: line-through;
+  }
 }
