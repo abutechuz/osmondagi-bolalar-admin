@@ -17,8 +17,6 @@ function DashMain() {
         queryFn: () => client('userscount'),
     })
 
-    console.log(users)
-
     return (
         <>
             <section className='genral-stat'>
