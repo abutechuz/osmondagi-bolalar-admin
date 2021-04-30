@@ -14,6 +14,9 @@ function Settings() {
                 password: adminPassword.value.trim(),
             },
         }).then((data) => console.log(data))
+
+        adminName.value = ''
+        adminPassword.value = ''
     }
     return (
         <div className='settings-section stats'>

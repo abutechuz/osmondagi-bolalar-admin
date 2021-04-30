@@ -20,7 +20,9 @@ function ReplyModal({ modal, setModal, question, chatId }) {
                 userQuestion: question,
                 resText: user_answer.value.trim(),
             }),
-        })
+        }).then((data) =>
+            alert(data.status === 200 ? 'Comleted' : 'Uncompleted')
+        )
 
         setModal(false)
     }

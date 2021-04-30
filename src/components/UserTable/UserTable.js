@@ -27,6 +27,20 @@ function UserTable() {
         setElements(elList?.current?.childElementCount)
     }, [data])
 
+    const [prize, setPrize] = React.useState()
+
+    function handlePrizeSelect(evt) {
+        setPrize(evt.target.value)
+    }
+
+    function handleChangePrize(evt) {
+        client('userscore', {
+            data: {
+                user_tg_id: evt.target.dataset.tgid,
+                product_id: prize,
+            },
+        }).then((data) => alert(data.message))
+    }
     return (
         <div className='user-table__wrapper'>
             <h2 className='user-section__heading title'>Foydalanuvchilar</h2>
@@ -67,7 +81,7 @@ function UserTable() {
                 </thead>
                 <tbody className='user-table__body' ref={elList}>
                     {isSuccess &&
-                        data?.map((user, index) => (
+                        data?.map((user) => (
                             <tr
                                 className='user-table__body'
                                 key={user.id + Math.random()}>
@@ -96,16 +110,32 @@ function UserTable() {
                                     {user.score ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-score'>
-                                    <select class='user-table__prize-select' name='user_prize_select' id=''>
-                                        <option defaultValue={null}>prize</option>
-                                        {isProSuccess && productData.map(e => (
-                                            <option value={e.product_id}>{e.product_name}</option>
-                                        ))
-                                        }   
+                                    <select
+                                        className='user-table__prize-select'
+                                        name='user_prize_select'
+                                        defaultValue='prize'
+                                        onChange={handlePrizeSelect}>
+                                        <option value='prize' disabled>
+                                            prize
+                                        </option>
+                                        {isProSuccess &&
+                                            productData.map((e) => (
+                                                <option
+                                                    value={e.product_id}
+                                                    key={e.product_id}>
+                                                    {e.product_name}
+                                                </option>
+                                            ))}
                                     </select>
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-score'>
-                                   <button className="user-table__send-button" type='button'>Send</button>
+                                    <button
+                                        className='user-table__send-button'
+                                        type='button'
+                                        onClick={handleChangePrize}
+                                        data-tgid={user?.user_tg_id}>
+                                        Send
+                                    </button>
                                 </td>
                             </tr>
                         ))}
