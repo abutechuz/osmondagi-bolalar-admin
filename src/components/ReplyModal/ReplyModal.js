@@ -1,14 +1,30 @@
 import './ReplyModal.scss'
 import React from 'react'
 
-function ReplyModal({ modal, setModal, response }) {
+function ReplyModal({ modal, setModal, question, chatId }) {
     function handleClose() {
         setModal(false)
     }
 
     function handleSubmit(evt) {
         evt.preventDefault()
+        const { user_answer } = evt.target.elements
+
+        fetch('http://165.227.211.149:4000/question/response', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chatId: chatId,
+                userQuestion: question,
+                resText: user_answer.value.trim(),
+            }),
+        })
+
+        setModal(false)
     }
+
     return (
         <>
             <div
@@ -28,7 +44,9 @@ function ReplyModal({ modal, setModal, response }) {
                         <input
                             className='reply-modal__input'
                             type='text'
+                            name='user_answer'
                             placeholder='Javob yozing ...'
+                            required
                         />
                         <button className='reply-modal__submit-btn'>
                             Send

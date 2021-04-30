@@ -25,12 +25,17 @@ function QuestionTable() {
     }, [data])
 
     const [modal, setModal] = React.useState(false)
-    const [response, setResponse] = React.useState(false)
+    const [news, setNews] = React.useState({})
+
     function handleClickReplyBtn(evt) {
         evt.preventDefault()
         setModal(true)
 
-        setResponse({ chatId: evt.target.dataset.reply })
+        // setChat()
+        setNews({
+            chatId: evt.target.dataset.reply,
+            chatQuestion: evt.target.dataset.question,
+        })
     }
 
     return (
@@ -58,7 +63,8 @@ function QuestionTable() {
                                 className='speaker__reply-btn'
                                 type='button'
                                 onClick={handleClickReplyBtn}
-                                data-reply={q?.user_tg_id}>
+                                data-reply={q?.user_tg_id}
+                                data-question={q?.question}>
                                 Reply
                             </button>
                         </li>
@@ -74,8 +80,8 @@ function QuestionTable() {
             <ReplyModal
                 modal={modal}
                 setModal={setModal}
-                response={response}
-                setResponse={setResponse}
+                chatId={news.chatId}
+                question={news.chatQuestion}
             />
         </div>
     )
