@@ -337,7 +337,7 @@
   margin-right: 15px;
   padding: 10px 20px;
   text-transform: capitalize;
-  background-color: #FFD369FF;
+  background-color: rgba(255, 210, 105, 0.788);
   border-radius: 10px;
   font-style: normal;
   font-weight: bold;
@@ -349,21 +349,16 @@
   border:1px solid transparent;
 
   &:nth-child(2) {
-    background-color: #E786D7;
+    background-color: #e786d7c7;
     border:1px solid transparent;
     color: #fff;
   }
 }
 .post__gender--active {
-  background-color: #fff;
-  border: 1px solid #FFD369FF;
+  background-color: #ffb300;
   color: #404040;
-  text-decoration: line-through;
   
   &:nth-child(2) {
-    background-color: #fff;
-    border: 1px solid #E786D7;
-    color: #404040;
-    text-decoration: line-through;
+    background-color: #e431c6;
   }
 }
