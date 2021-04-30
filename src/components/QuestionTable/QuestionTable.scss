@@ -41,6 +41,7 @@
 }
 
 .question-list__right-box {
+    flex-shrink: 0;
     width: 175px;
     padding-right: 25px;
 }

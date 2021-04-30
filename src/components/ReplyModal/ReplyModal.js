@@ -1,7 +1,7 @@
 import './ReplyModal.scss'
 import React from 'react'
 
-function ReplyModal({ modal, setModal }) {
+function ReplyModal({ modal, setModal, response }) {
     function handleClose() {
         setModal(false)
     }

@@ -18,6 +18,10 @@ function UserTable() {
         () => fetchProjects(page),
         { keepPreviousData: true }
     )
+    const { data: productData, isSuccess: isProSuccess } = useQuery({
+        queryKey: 'products',
+        queryFn: () => client('products'),
+    })
 
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
@@ -25,7 +29,7 @@ function UserTable() {
 
     return (
         <div className='user-table__wrapper'>
-            <h2 className='user-section__heading title'>Foydalanuchilar</h2>
+            <h2 className='user-section__heading title'>Foydalanuvchilar</h2>
             <table className='user-table'>
                 <thead className='user-table__head'>
                     <tr className='user-table__head-tr'>
@@ -53,6 +57,12 @@ function UserTable() {
                         <th className='user-table__head-th user-table__head-th-score'>
                             Score
                         </th>
+                        <th className='user-table__head-th user-table__head-th-score'>
+                            Prize
+                        </th>
+                        <th className='user-table__head-th user-table__head-th-score'>
+                            Send Prize
+                        </th>
                     </tr>
                 </thead>
                 <tbody className='user-table__body' ref={elList}>
@@ -71,7 +81,7 @@ function UserTable() {
                                     {user.surname ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-profession'>
-                                    {user.profession?.text ?? '-'}
+                                    {user.profession.text ?? '-'}
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-birth'>
                                     {user.birthyear ?? '-'}
@@ -84,6 +94,18 @@ function UserTable() {
                                 </td>
                                 <td className='user-table__body-td user-table__body-td-score'>
                                     {user.score ?? '-'}
+                                </td>
+                                <td className='user-table__body-td user-table__body-td-score'>
+                                    <select class='user-table__prize-select' name='user_prize_select' id=''>
+                                        <option defaultValue={null}>prize</option>
+                                        {isProSuccess && productData.map(e => (
+                                            <option value={e.product_id}>{e.product_name}</option>
+                                        ))
+                                        }   
+                                    </select>
+                                </td>
+                                <td className='user-table__body-td user-table__body-td-score'>
+                                   <button className="user-table__send-button" type='button'>Send</button>
                                 </td>
                             </tr>
                         ))}
