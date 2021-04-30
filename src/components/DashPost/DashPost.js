@@ -41,7 +41,7 @@ function DashPosts() {
             formData.append("img", image.current.files[0]);
             formData.append("text", postText.current.value);
             console.log(formData);
-            await fetch("http://165.229:4000/post", {
+            await fetch("http://165.229:40", {
               method: "POST",
               body: formData,
             });
@@ -49,7 +49,7 @@ function DashPosts() {
           className="post__form"
           action=""
           method="post"
-        >
+          >
           <div className="post__container">
               <label className="post__label-file">
                 <input
@@ -57,6 +57,10 @@ function DashPosts() {
                   className="post__input-file visually-hidden"
                   type="file"
                   name="poster"
+                  accept="image/*"
+                  on={e=> {
+                    console.log(e)
+                  }}
                 />
                   <FileSvg />
               </label>
@@ -72,13 +76,9 @@ function DashPosts() {
 
           <div className="post__target">
             <div className="post__target-reg target">
-              <label className="target__checkbox--all">
-              <span>all</span>
-                <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
-                  region = []
-                  console.log(region)
-                }} />
-              </label>
+              <div className="target__checkbox--all">
+                <span>regions</span>
+              </div>
               <ul className="target__list">
                 {regSuccess && reg.map( e => (
                   <li className="target__item" key={Math.random()}>
@@ -98,12 +98,9 @@ function DashPosts() {
             </div>
 
           <div className="post__target-prof target">
-                <label className="target__checkbox--all">
-                  <span>all</span>
-                  <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
-                  profs = []
-                  }}/>
-              </label>
+                <div className="target__checkbox--all">
+                  <span>Profession</span>
+              </div>
               <ul className="target__list">
                 {profSuccess && prof.map( e => (
                   <li className="target__item" key={Math.random()}>
@@ -123,12 +120,9 @@ function DashPosts() {
             </div>
 
             <div className="post__target-age target">
-              <label className="target__checkbox--all">
-                <span>all</span>
-                <input className="visually-hidden" type="checkbox" name="reg" value="all" onChange={evt => {
-                  ages = []
-                }}/>
-              </label>
+              <div className="target__checkbox--all">
+                <span>Ages</span>
+              </div>
               <ul className="target__list">
                 {ageSuccess && age.map( (e, i) => (
                   <li className="target__item" key={Math.random()}>

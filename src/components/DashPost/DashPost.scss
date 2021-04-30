@@ -179,6 +179,8 @@
   width: 63%;
 }
 .post__inner {
+  height: 83vh;
+  overflow-x: auto;
 }
 .post__label-file {
   width: 50px;
@@ -197,6 +199,7 @@
   border: none;
   padding: 25px 10px 10px;
   font-size: 20px;
+  resize: vertical;
   border-left: 1px solid rgb(75, 75, 75);
 }
 .post__send-btn {
@@ -241,6 +244,7 @@
   width: 37%;
   padding: 15px 40px;
   background-color: #fff;
+  border-left: 1px solid rgba(51, 51, 51, 0.24);
 }
 .post__target-reg {
 
@@ -258,23 +262,19 @@
 }
 .target__checkbox--all {
   background-color: #FFD369FF;
-  padding: 11px 13px;
-  min-width: 70px;
-  border-radius: 10px;
+  padding: 5px 13px;
+  min-width: 200px;
+  border-radius: 3px;
   font-style: normal;
   font-weight: bold;
   font-size: 11.1442px;
   line-height: 14px;
   color: #404040;
-  text-align: center;
+  text-align: right;
   transition: all ease 0.1s;
   margin-bottom: 15px;
   border: 1px solid transparent;
-  cursor: pointer;
-  &:hover {
-    background-color: rgb(255, 188, 32);
-    color: rgb(255, 255, 255);
-  }
+  text-transform: capitalize;
 }
 .target__checkbox--all-active {
   background-color: #fff;
@@ -303,14 +303,11 @@
 .target__checkbox {
   padding: 3px 9px;
   border-radius: 50px;
-  background-color: #70A6E8;
+  background-color: rgba(112, 166, 232, 0.863);
   border-radius: 8px;
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: #4d89d3;
-  }
 }
 .target__checkbox > span {
   font-weight: normal;
@@ -320,11 +317,9 @@
   text-transform: capitalize;
 }
 .target__checkbox-active {
-  background-color: #fff;
-  border: 1px solid #70A6E8;
+  background-color: #2566b6;
   & > span {
-    text-decoration: line-through;
-    color: #70A6E8;
+    color: #fff;
   }
 }
 .post__bottom {
