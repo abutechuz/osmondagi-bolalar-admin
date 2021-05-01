@@ -9,6 +9,7 @@ import Posts from './screens/Posts/Posts'
 import User from './screens/User/User'
 import DashChart from './screens/DashChart/DashChart'
 import Settings from './screens/Settings/Settings'
+import WebDash from './screens/WebDash/WebDash'
 
 function AuthenticatedApp() {
     return (
@@ -26,6 +27,7 @@ function AuthenticatedApp() {
                         <Route path='/posts' component={Posts} exact />
                         <Route path='/users' component={User} exact />
                         <Route path='/settings' component={Settings} exact />
+                        <Route path='/webdash' component={WebDash} />
                     </Switch>
                 </div>
             </div>
