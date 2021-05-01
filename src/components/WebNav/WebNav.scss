@@ -1,0 +1,21 @@
+.webdash__nav-list{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    list-style-type: none;
+    background-color: #fff;
+}
+
+.webdash__nav-link{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+    color: #333;
+
+    &:hover{
+        color: burlywood;
+    }
+}
