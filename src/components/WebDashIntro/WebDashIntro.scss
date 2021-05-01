@@ -1,0 +1,110 @@
+.web-intro {
+  width: 100%;
+}
+.web-intro__form {
+  background-color: #fff;
+  margin-top: 25px;
+  padding: 25px;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 2px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.web-intro__speaker {
+  display: flex;
+  margin-bottom: 60px;
+  width: 100%;
+}
+.speaker {
+}
+.speaker__inner {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+.speaker__input {
+  width: 400px;
+  height: 55px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: none;
+  background: #f7f7f7;
+  box-shadow: inset 1px 1px 2px rgba(170, 170, 204, 0.5), inset -1px -1px 2px #FFFFFF;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #7878AB;
+  &:nth-child(even) {
+    margin-bottom: 0px;
+  }
+  
+  &::placeholder {
+    font-style: normal;
+    font-weight: 1%;
+    font-size: 18px;
+    line-height: 20px;
+    color: #7878ab50;
+    text-transform: capitalize;
+  }
+}
+.speaker__texarea {
+  padding: 12px 20px;
+  border-radius: 3px;
+  width: 550px;
+  border: none;
+  resize: none;
+  background: #e9e9e985;
+  box-shadow: inset 1px 1px 2px rgba(170, 170, 204, 0.5), inset -1px -1px 2px #FFFFFF;
+  font-size: 18px;
+  color: #7878AB;
+  
+  &::placeholder {
+    font-style: normal;
+    font-weight: 1%;
+    font-size: 18px;
+    line-height: 20px;
+    color: #7878aba2;
+    text-transform: capitalize;
+  }
+}
+.web-intro__file {
+  width: 100%;
+  margin-top: -25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.web-intro__label-btn {
+  width: 200px;
+  margin-left: 10px;
+  cursor: pointer; 
+  background: #E5E5F0;
+  text-align: center;
+  padding: 12px 20px;
+  box-shadow: 5px 5px 10px rgba(170, 170, 204, 0.5), -5px -5px 10px #FFFFFF;
+  border-radius: 32px;
+}
+.web-intro__label-btn > span { 
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  color: #7878AB;
+}
+.web-intro__btn {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  margin-top: 50px;
+  width: 200px;
+  padding: 12px 20px;
+  // height: 40px;
+  background-color: #FFD369FF;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFFFFF;
+  border-radius: 32px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+  color: rgb(54, 55, 64);
+}

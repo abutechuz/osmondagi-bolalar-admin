@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import WebNav from '../../components/WebNav/WebNav'
 
-import Videos from '../../components/Videos/Videos.js'
+import WebDashIntro from '../../components/WebDashIntro/WebDashIntro'
 import Team from '../../components/Team/Team.js'
 import Categories from '../../components/Categories/Categotires'
 import Products from '../../components/Products/Products'
@@ -17,7 +17,7 @@ function WebDash() {
             <div className='webdash-content'>
                 <Switch>
                     <Route path='/webdash' component={Orders} exact />
-                    <Route path='/webdash/videos' component={Videos} exact />
+                    <Route path='/webdash/videos' component={WebDashIntro} exact />
                     <Route path='/webdash/team' component={Team} exact />
                     <Route
                         path='/webdash/categories'
