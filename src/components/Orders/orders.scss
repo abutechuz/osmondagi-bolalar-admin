@@ -1,0 +1,32 @@
+/* Orders Section: */
+.orders {
+  padding-top: 25px;
+}
+
+.orders__wrapper {
+  background-color: white;
+  padding: 30px;
+}
+
+.orders__heading {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+
+.orders__table {
+  background-color: white;
+  display: block;
+  margin: 0;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+}
