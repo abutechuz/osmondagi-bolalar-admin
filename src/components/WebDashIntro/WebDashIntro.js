@@ -1,6 +1,8 @@
 import "./WebDashIntro.scss";
 import Container from "../Container/Container"
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { useQuery } from 'react-query'
+import { client } from '../../utils/api-client'
 
 function WebDashIntro() {
 
@@ -16,7 +18,16 @@ function WebDashIntro() {
   const smallImg = useRef()
   const bigImg = useRef()
 
-
+  const [sld, sldSet] = useState([])
+  
+  useEffect(()=> {
+    fetch('http://192.168.0.208:5000/videos')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      sldSet(data)
+    })
+  }, [])
 
   return (
     <>
@@ -35,6 +46,7 @@ function WebDashIntro() {
           formData.append('sliderImage', sliderImg.current.files[0])
           formData.append('smallImage', smallImg.current.files[0])
           formData.append('bigImage', bigImg.current.files[0])
+          console.log(bigImg.current.files[0])
 
           await fetch('http://192.168.0.208:5000/videos', {
             method: "POST",
@@ -82,6 +94,24 @@ function WebDashIntro() {
 
           <button className="web-intro__btn" type="submit">Send</button>
         </form>
+
+        <ul className="intro-sld">
+          {
+            sld.map(e => (
+              <li className="intro-sld__item" key={Math.random()}>
+                <button className="intro-sld__btn-del" data-vid={e.video_id} onClick={e => {
+                  console.log(e.target.dataset.vid)
+                }}>D</button>
+                <img className="intro-sld__img" src={`http://192.168.0.208:5000/images/${e.video_images.smallImage}`} alt={e.video_speaker_name}/>
+                {/* {console.log(e)} */}
+                <div className="intro-sld__inner">
+                  <span className="intro-sld__span">{e.video_speaker_name}</span>
+                  <span className="intro-sld__span">{e.video_speaker_job}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
       </ Container>
     </>
   );
