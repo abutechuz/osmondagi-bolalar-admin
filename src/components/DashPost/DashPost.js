@@ -40,7 +40,6 @@ function DashPosts() {
                         formData.append('age', JSON.stringify(ages))
                         formData.append('img', image.current.files[0])
                         formData.append('text', postText.current.value)
-                        console.log(formData)
                         await fetch('http://165.229:40', {
                             method: 'POST',
                             body: formData,

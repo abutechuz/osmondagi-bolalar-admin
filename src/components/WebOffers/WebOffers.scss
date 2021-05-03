@@ -1,0 +1,49 @@
+.webdash-offer__form {
+    width: 800px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 30px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.webdash-offer__input-wrapper {
+    width: 50%;
+}
+.webdash-offer__input-wrapper + .webdash-offer__input-wrapper {
+    margin-top: 30px;
+}
+.webdash-offer__label {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.webdash-offer__input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ffd369;
+    outline: 0;
+    border-radius: 3px;
+}
+.webdash-offer__textarea {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ffd369;
+    outline: 0;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+.webdash-offer__submit-btn {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #ffd369;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+

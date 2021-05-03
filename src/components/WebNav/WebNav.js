@@ -42,7 +42,7 @@ function WebNav() {
             <li className='webdash__nav-item'>
                 <NavLink
                     className='webdash__nav-link'
-                    to='/webdash/offers'
+                    to='/webdash/weboffers'
                     exact>
                     Offers
                 </NavLink>
