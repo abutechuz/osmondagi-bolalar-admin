@@ -5,7 +5,14 @@ function WebDashIntro() {
   return (
     <>
       <Container className="web-intro">
-        <form className="web-intro__form" action="/" method="post">
+        <form onSubmit={ async(evt) => {
+          evt.preventDefault()
+          const formData = new FormData()
+          formData.append('')
+        }} 
+        className="web-intro__form" 
+        action="/" 
+        method="post">
           <div className="web-intro__speaker speaker">
             <div className="speaker__inner">
               <input className="speaker__input" type="text" name="speaker_name" placeholder="speaker name"/>
@@ -24,16 +31,16 @@ function WebDashIntro() {
 
           <div className="web-intro__file">
             <label className="web-intro__label-btn">
-              <span>Slider Image</span>
+              <span>Slider Image (PNG)</span>
               <input className="web-intro__file-input visually-hidden" type="file" name="sliderImage" accept="image/png"/>
             </label>
             <label className="web-intro__label-btn">
               <span>Small Image</span>
-              <input className="web-intro__file-input visually-hidden" type="file" name="smallImage " accept="image/png"/>
+              <input className="web-intro__file-input visually-hidden" type="file" name="smallImage " accept="image/*"/>
             </label>
             <label className="web-intro__label-btn">
               <span>Big Image</span>
-              <input className="web-intro__file-input visually-hidden" type="file" name="bigImage " accept="image/png"/>
+              <input className="web-intro__file-input visually-hidden" type="file" name="bigImage " accept="image/*"/>
             </label>
           </div>
 
