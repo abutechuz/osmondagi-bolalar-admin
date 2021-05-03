@@ -1,5 +1,5 @@
-.webdash__nav-list{
-    width: 100px;
+.webdash__nav-list {
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -9,13 +9,13 @@
     background-color: #fff;
 }
 
-.webdash__nav-link{
+.webdash__nav-link {
     display: inline-block;
     text-decoration: none;
     padding: 10px;
     color: #333;
 
-    &:hover{
+    &:hover {
         color: burlywood;
     }
 }

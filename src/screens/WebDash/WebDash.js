@@ -6,7 +6,7 @@ import WebDashIntro from '../../components/WebDashIntro/WebDashIntro'
 import Team from '../../components/Team/Team.js'
 import Categories from '../../components/Categories/Categotires'
 import Products from '../../components/Products/Products'
-import Offers from '../../components/Offers/Offers.js'
+import WebOffers from '../../components/WebOffers/WebOffers.js'
 import Stores from '../../components/Stores/Stores.js'
 import Orders from '../../components/Orders/Orders.js'
 import './WebDash.scss'
@@ -17,7 +17,11 @@ function WebDash() {
             <div className='webdash-content'>
                 <Switch>
                     <Route path='/webdash' component={Orders} exact />
-                    <Route path='/webdash/videos' component={WebDashIntro} exact />
+                    <Route
+                        path='/webdash/videos'
+                        component={WebDashIntro}
+                        exact
+                    />
                     <Route path='/webdash/team' component={Team} exact />
                     <Route
                         path='/webdash/categories'
@@ -29,7 +33,7 @@ function WebDash() {
                         component={Products}
                         exact
                     />
-                    <Route path='/webdash/offers' component={Offers} exact />
+                    <Route path='/webdash/weboffers' component={WebOffers} exact />
                     <Route path='/webdash/stores' component={Stores} exact />
                 </Switch>
             </div>
