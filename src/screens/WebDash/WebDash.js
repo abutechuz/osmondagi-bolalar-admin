@@ -13,7 +13,7 @@ import './WebDash.scss'
 
 function WebDash() {
     return (
-        <div className='webdash-wrapper'>
+        <section className='webdash-wrapper stats'>
             <div className='webdash-content'>
                 <Switch>
                     <Route path='/webdash' component={Orders} exact />
@@ -35,7 +35,7 @@ function WebDash() {
             </div>
 
             <WebNav />
-        </div>
+        </section>
     )
 }
 
