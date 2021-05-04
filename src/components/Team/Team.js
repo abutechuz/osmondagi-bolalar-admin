@@ -9,9 +9,12 @@ function Team() {
         queryKey: 'team',
 
         queryFn: () =>
-            fetch('http://192.168.0.208:5000/team', {
-                token:
-                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+            fetch('http://165.227.211.149:5472/team', {
+                method: 'GET',
+                headers: {
+                    token:
+                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+                },
             }).then((data) => data.json()),
     })
 
@@ -35,7 +38,7 @@ function Team() {
         formData.append('facebook', member_facebook_link.value.trim())
         formData.append('instagram', member_instagram_link.value.trim())
 
-        fetch('http://192.168.0.208:5000/team', {
+        fetch('http://165.227.211.149:5472/team', {
             method: 'POST',
             body: formData,
             headers: {
@@ -57,7 +60,7 @@ function Team() {
         const formData = new FormData()
         formData.append('member_id', evt.target.dataset.memberid)
 
-        fetch('http://192.168.0.208:5000/team', {
+        fetch('http://165.227.211.149:5472/team', {
             method: 'DELETE',
             body: formData,
             headers: {
