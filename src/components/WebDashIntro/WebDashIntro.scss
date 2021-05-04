@@ -1,20 +1,11 @@
 .web-intro {
   width: 100%;
   overflow-y: auto;
-  height: 83.2vh;
-  scrollbar-width: thin;
-  scrollbar-color: #363740;
+  height: 80vh;
 }
-.web-intro::-webkit-scrollbar-track {
-  background: #363740;
-  border-radius: 6px;
-}
-
-.web-intro::-webkit-scrollbar-thumb {
-  background-color: #ffd369;
-  border-radius: 6px;
-  border: 3px solid #ffd369;
-}
+.web-intro::-webkit-scrollbar {
+  display: none;
+} 
 .web-intro__form {
   background-color: #fff;
   margin-top: 25px;
@@ -25,6 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 25px;
 }
 .web-intro__speaker {
   display: flex;
@@ -45,10 +37,11 @@
   margin-bottom: 10px;
   border: none;
   background: #f7f7f7;
-  box-shadow: inset 1px 1px 2px rgba(170, 170, 204, 0.5), inset -1px -1px 2px #FFFFFF;
-  border-radius: 25px;
+  box-shadow: inset 1px 1px 2px rgba(255, 210, 105, 0.507), inset -1px -1px 2px #FFFFFF;
+  border-radius: 3px;
   font-size: 18px;
   color: #7878AB;
+  outline-color: #ffd369;
   &:nth-child(even) {
     margin-bottom: 0px;
   }
@@ -69,9 +62,10 @@
   border: none;
   resize: none;
   background: #e9e9e985;
-  box-shadow: inset 1px 1px 2px rgba(170, 170, 204, 0.5), inset -1px -1px 2px #FFFFFF;
+  box-shadow: inset 1px 1px 2px rgba(255, 210, 105, 0.507), inset -1px -1px 2px #FFFFFF;
   font-size: 18px;
   color: #7878AB;
+  outline-color: #ffd369;
   
   &::placeholder {
     font-style: normal;
@@ -91,13 +85,19 @@
 }
 .web-intro__label-btn {
   width: 33.3%;
-  // margin-left: 10px;
   cursor: pointer; 
   background-color: #E5E5F0;
   text-align: center;
   padding: 12px 20px;
   box-shadow: 5px 5px 10px rgba(170, 170, 204, 0.5), -5px -5px 10px #FFFFFF;
-  // border-radius: 32px;
+  transition: all 0.1s ease;
+  
+  &:hover {
+    background-color: #ffd2691a;
+  }
+}
+.web-intro__label-btn--active {
+  background-color: #ffd2694f;
 }
 .web-intro__label-btn > span { 
   font-weight: bold;
@@ -121,4 +121,14 @@
   font-weight: bold;
   line-height: 24px;
   color: rgb(54, 55, 64);
+  
+  &:hover {
+    background-color: rgb(255, 192, 46);
+  }
+}
+.web-intro__list {
+  background-color: #fff;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 2px;
+  padding: 25px !important;
 }
