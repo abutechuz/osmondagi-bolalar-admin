@@ -9,6 +9,10 @@
     border-radius: 3px;
 }
 
+.webdash-team__heading{
+    margin-bottom: 20px;
+}
+
 .webdash-team__input-wrapper {
     width: 50%;
 }
@@ -36,4 +40,41 @@
     border: none;
     color: #fff;
     cursor: pointer;
+}
+
+.team-members__wrapper {
+    background-color: #fff;
+    margin: 30px;
+    padding: 30px;
+}
+
+.team-members__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.team-members__item {
+    display: flex;
+    padding: 10px;
+}
+
+.team-members__item + .team-members__item {
+    border-top: 1px solid #333;
+}
+
+.team-members__item-btn {
+    width: 60px;
+    display: block;
+    margin-left: auto;
+    padding: 5px;
+    color: #fff;
+    background-color: lightcoral;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }

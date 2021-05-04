@@ -1,6 +1,4 @@
 import './DashPost.scss'
-// import Container from '../Container/Container'
-// import { useState, useEffect } from 'react';
 import { FileSvg } from '../Svgs/Svgs'
 import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
@@ -40,7 +38,7 @@ function DashPosts() {
                         formData.append('age', JSON.stringify(ages))
                         formData.append('img', image.current.files[0])
                         formData.append('text', postText.current.value)
-                        await fetch('http://165.229:40', {
+                        await fetch('http://165.227.211.149:400/post', {
                             method: 'POST',
                             body: formData,
                         })
