@@ -1,8 +1,8 @@
 import "./WebDashIntro.scss";
 import Container from "../Container/Container"
 import { useRef, useState, useEffect } from 'react'
-import { useQuery } from 'react-query'
-import { client } from '../../utils/api-client'
+// import { useQuery } from 'react-query'
+// import { client } from '../../utils/api-client'
 
 function WebDashIntro() {
 
@@ -29,34 +29,48 @@ function WebDashIntro() {
     })
   }, [])
 
+  function added(evt) {
+    evt.preventDefault()
+    const formData = new FormData()
+    formData.append('video_speaker_name', speakerName.current.value)
+    formData.append('video_speaker_job', speakerJob.current.value)
+    formData.append('video_speaker_about', speakerAbout.current.value)
+    // ----- video
+    formData.append('video_title', videoTitle.current.value)
+    formData.append('video_texts', videoTexts.current.value)
+    formData.append('video_ytid', videoYtid.current.value)
+    // ---- imgs
+    formData.append('sliderImage', sliderImg.current.files[0])
+    formData.append('smallImage', smallImg.current.files[0])
+    formData.append('bigImage', bigImg.current.files[0])
+    console.log(bigImg.current.files[0])
+
+      fetch('http://192.168.0.208:5000/videos', {
+      method: "POST",
+      body: formData,
+      headers: {
+       token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I'
+      }
+        
+    }).then(()=> alert("Added"))   
+  }
+
+  function deleted(e) {
+      const formData = new FormData()
+      formData.append('video_id', e.target.dataset.vid)
+       fetch(`http://192.168.0.208:5000/videos`,{
+        method: "DELETE",
+        body: formData,
+        headers: {
+          token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I'
+        }  
+      }).then(() => alert('Deleted'))
+  }
+
   return (
     <>
       <Container className="web-intro">
-        <form onSubmit={ async(evt) => {
-          evt.preventDefault()
-          const formData = new FormData()
-          formData.append('video_speaker_name', speakerName.current.value)
-          formData.append('video_speaker_job', speakerJob.current.value)
-          formData.append('video_speaker_about', speakerAbout.current.value)
-          // ----- video
-          formData.append('video_title', videoTitle.current.value)
-          formData.append('video_texts', videoTexts.current.value)
-          formData.append('video_ytid', videoYtid.current.value)
-          // ---- imgs
-          formData.append('sliderImage', sliderImg.current.files[0])
-          formData.append('smallImage', smallImg.current.files[0])
-          formData.append('bigImage', bigImg.current.files[0])
-          console.log(bigImg.current.files[0])
-
-          await fetch('http://192.168.0.208:5000/videos', {
-            method: "POST",
-            body: formData,
-            headers: {
-             token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I'
-            }
-              
-          })
-        }} 
+        <form onSubmit={added} 
         className="web-intro__form" 
         action=''
         method="POST"
@@ -99,15 +113,12 @@ function WebDashIntro() {
           {
             sld.map(e => (
               <li className="intro-sld__item" key={Math.random()}>
-                <button className="intro-sld__btn-del" data-vid={e.video_id} onClick={e => {
-                  console.log(e.target.dataset.vid)
-                }}>D</button>
-                <img className="intro-sld__img" src={`http://192.168.0.208:5000/images/${e.video_images.smallImage}`} alt={e.video_speaker_name}/>
-                {/* {console.log(e)} */}
+                {/* <img className="intro-sld__img" src={`http://192.168.0.208:5000/images/${e.video_images.smallImage}`} alt={e.video_speaker_name}/> */}
                 <div className="intro-sld__inner">
                   <span className="intro-sld__span">{e.video_speaker_name}</span>
                   <span className="intro-sld__span">{e.video_speaker_job}</span>
                 </div>
+                <button className="intro-sld__btn-del" data-vid={e.video_id} onClick={deleted}>D</button>
               </li>
             ))
           }
@@ -118,3 +129,4 @@ function WebDashIntro() {
 }
 
 export default WebDashIntro;
+
