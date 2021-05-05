@@ -1,3 +1,12 @@
+.webdash-team-section {
+    padding-top: 25px;
+    padding-bottom: 150px;
+    overflow-y: auto;
+    height: 78vh;
+  }
+  .webdash-team-section::-webkit-scrollbar {
+    display: none;
+  }
 .webdash-team__form {
     width: 800px;
     display: flex;

@@ -1,21 +1,34 @@
+.webdash__nav {
+    padding: 15px 0;
+    background-color: #363740FF;
+    width: 100%;
+}
 .webdash__nav-list {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    margin-left: auto;
     padding: 0;
+    margin: 0;
+    max-width: 1250px;
+    // padding: 0 25px;
+    margin-left: auto;
+    margin-right: auto;
     list-style-type: none;
     background-color: #fff;
+    display: flex;
+    justify-content: space-between;
 }
-
+.webdash__nav-item {
+    width: 14.28571428571429%;
+}
 .webdash__nav-link {
     display: inline-block;
     text-decoration: none;
-    padding: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px 25px; 
     color: #333;
-
+    transition: all ease 0.2s;
+    
     &:hover {
+        background-color: #363740FF;
         color: burlywood;
     }
 }
