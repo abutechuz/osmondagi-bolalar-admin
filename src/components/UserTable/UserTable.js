@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import TableController from '../TableContoller/TableController'
 import './UserTable.scss'
 import { useQuery } from 'react-query'
@@ -19,11 +19,29 @@ function UserTable() {
         () => fetchProjects(page),
         { keepPreviousData: true }
     )
+    const { data: productData, isSuccess: isProSuccess } = useQuery({
+        queryKey: 'products',
+        queryFn: () => client('products'),
+    })
 
     React.useEffect(() => {
         setElements(elList?.current?.childElementCount)
     }, [data])
 
+    const [prize, setPrize] = React.useState()
+
+    function handlePrizeSelect(evt) {
+        setPrize(evt.target.value)
+    }
+
+    function handleChangePrize(evt) {
+        client('userscore', {
+            data: {
+                user_tg_id: evt.target.dataset.tgid,
+                product_id: prize,
+            },
+        }).then((data) => alert(data.message))
+    }
     return (
         <div className='user-table__wrapper'>
             <h2 className='user-section__heading title'>Foydalanuvchilar</h2>
@@ -77,4 +95,4 @@ function UserTable() {
     )
 }
 
-export default memo(UserTable)
+export default UserTable

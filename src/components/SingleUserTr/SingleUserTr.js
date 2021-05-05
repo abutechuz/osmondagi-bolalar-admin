@@ -51,7 +51,7 @@ function SingleUserTr({ user }) {
             <td className='user-table__body-td user-table__body-td-score'>
                 <select
                     className='user-table__prize-select'
-                    name={'user_prize_select_' + user.id}
+                    name={'user_prize_select' + user.id}
                     defaultValue='prize'
                     onChange={handlePrizeSelect}>
                     <option value='prize' disabled>
@@ -64,6 +64,8 @@ function SingleUserTr({ user }) {
                             </option>
                         ))}
                 </select>
+
+                 
             </td>
             <td className='user-table__body-td user-table__body-td-score'>
                 <button
