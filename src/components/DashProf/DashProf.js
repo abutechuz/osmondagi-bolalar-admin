@@ -10,13 +10,16 @@ function DashProf() {
         queryFn: () => client('profession'),
     })
 
+    const sortedData =
+        isSuccess && data.sort((a, b) => a.percent - b.percent).reverse()
+
     return (
         <>
             <div className='stats__prof stats-prof'>
                 <h3 className='stats-prof__title'>Profession</h3>
                 <ul className='stats-prof__list'>
                     {isSuccess &&
-                        data?.map((e, i) => (
+                        sortedData?.map((e, i) => (
                             <li
                                 className='stats-prof__item'
                                 key={Math.random()}
@@ -27,7 +30,14 @@ function DashProf() {
                                     style={{ background: stil(e?.percent)[0] }}>
                                     {e.percent}%
                                 </span>
-                                <span className="stats-reg__count" style={{ background: stil(e?.percent)[0], borderColor: stil(e?.percent)[0]}}>{e?.count}</span>
+                                <span
+                                    className='stats-reg__count'
+                                    style={{
+                                        background: stil(e?.percent)[0],
+                                        borderColor: stil(e?.percent)[0],
+                                    }}>
+                                    {e?.count}
+                                </span>
                             </li>
                         ))}
                 </ul>
