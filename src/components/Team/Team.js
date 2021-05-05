@@ -2,8 +2,6 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import './Team.scss'
 
-/* 192.168.0.208:5000
-192.168.0.208:5501 */
 function Team() {
     const { data, isSuccess } = useQuery({
         queryKey: 'team',
