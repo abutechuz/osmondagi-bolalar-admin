@@ -17,9 +17,13 @@ function DashAge() {
                 <ul className='stats-age__list'>
                     {isSuccess &&
                         data?.map((e, i) => (
+                            // console.log(e)
                             <li className='stats-age__item' key={i}>
                                 <div className='stats-age__inner'>
                                     <p className='stats-age__text'>{e.desc}</p>
+                                    <span className='stats-age__count'>
+                                        {e.number} ta
+                                    </span>
                                     <span className='stats-age__count'>
                                         {e.percent}%
                                     </span>

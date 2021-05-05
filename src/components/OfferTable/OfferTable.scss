@@ -1,8 +1,11 @@
 .offer-list__wrapper {
     padding-top: 25px;
     padding-bottom: 150px;
+    padding-left: 25px;
+    padding-right: 25px;
     overflow-y: auto;
     height: 78vh;
+    background-color: #fff;
   }
   .offer-list__wrapper::-webkit-scrollbar {
     display: none;
