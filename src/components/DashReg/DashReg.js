@@ -9,13 +9,16 @@ function DashReg() {
         queryFn: () => client('regions'),
     })
 
+    const sortedData =
+        isSuccess && data.sort((a, b) => a.percent - b.percent).reverse()
+
     return (
         <>
             <div className='stats__reg stats-reg'>
                 <h3 className='stats-reg__title'>Region</h3>
                 <ul className='stats-reg__list'>
                     {isSuccess &&
-                        data?.map((e, i) => (
+                        sortedData?.map((e, i) => (
                             <li
                                 className='stats-reg__item'
                                 key={i}
@@ -26,7 +29,14 @@ function DashReg() {
                                     style={{ background: stil(e?.percent)[0] }}>
                                     {e?.percent}%
                                 </span>
-                                <span className="stats-reg__count" style={{ background: stil(e?.percent)[0], borderColor: stil(e?.percent)[0]}}>{e?.count}</span>
+                                <span
+                                    className='stats-reg__count'
+                                    style={{
+                                        background: stil(e?.percent)[0],
+                                        borderColor: stil(e?.percent)[0],
+                                    }}>
+                                    {e?.count}
+                                </span>
                             </li>
                         ))}
                 </ul>
