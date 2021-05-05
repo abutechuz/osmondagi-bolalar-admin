@@ -1,0 +1,40 @@
+/* Categories Section */
+.categories__products-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1250px;
+}
+
+.categories {
+  padding-top: 25px;
+}
+
+.categories__wrapper {
+  background-color: white;
+  padding: 30px;
+}
+
+.categories__heading {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.categories__title-input-wrapper,
+.categories__price-input-wrapper,
+.categories__file-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.categories__file-upload-input {
+  cursor: pointer;
+}
+
+/* Categories Result */
+.categories-result__wrapper {
+  background-color: white;
+  padding: 30px;
+  width: 860px;
+}
