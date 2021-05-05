@@ -16,7 +16,7 @@
     justify-content: space-between;
 }
 .webdash__nav-item {
-    width: 16.6%;
+    width: 16.6666666666667%;
 }
 .webdash__nav-link {
     display: inline-block;
@@ -34,5 +34,6 @@
 }
 
 .webdash__nav-link--active {
+    background-color: #363740FF;
     color: burlywood;
 }
