@@ -46,15 +46,6 @@ function WebNav() {
                 <NavLink
                     className='webdash__nav-link'
                     activeClassName='webdash__nav-link--active'
-                    to='/webdash/products'
-                    exact>
-                    Products
-                </NavLink>
-            </li>
-            <li className='webdash__nav-item'>
-                <NavLink
-                    className='webdash__nav-link'
-                    activeClassName='webdash__nav-link--active'
                     to='/webdash/weboffers'
                     exact>
                     Offers
