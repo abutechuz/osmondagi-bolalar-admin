@@ -13,14 +13,13 @@ function DashProf() {
     const sortedData =
         isSuccess && data.sort((a, b) => a.percent - b.percent).reverse()
 
-        
     return (
         <>
             <div className='stats__prof stats-prof'>
                 <h3 className='stats-prof__title'>Profession</h3>
                 <ul className='stats-prof__list'>
                     {isSuccess &&
-                        data?.map((e, i) => (
+                        sortedData?.map((e, i) => (
                             <li
                                 className='stats-prof__item'
                                 key={Math.random()}
