@@ -1,11 +1,13 @@
 .web-intro {
   width: 100%;
+  padding-top: 25px;
+  padding-bottom: 150px;
   overflow-y: auto;
-  height: 80vh;
+  height: 78vh;
 }
 .web-intro::-webkit-scrollbar {
   display: none;
-} 
+}
 .web-intro__form {
   background-color: #fff;
   margin-top: 25px;
@@ -42,6 +44,7 @@
   font-size: 18px;
   color: #7878AB;
   outline-color: #ffd369;
+  resize: vertical;
   &:nth-child(even) {
     margin-bottom: 0px;
   }
@@ -52,7 +55,6 @@
     font-size: 18px;
     line-height: 20px;
     color: #7878ab50;
-    text-transform: capitalize;
   }
 }
 .speaker__texarea {

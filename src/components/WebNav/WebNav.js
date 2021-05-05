@@ -4,7 +4,8 @@ import './WebNav.scss'
 
 function WebNav() {
     return (
-        <ul className='webdash__nav-list'>
+        <div className="webdash__nav">
+            <ul className='webdash__nav-list'>
             <li className='webdash__nav-item'>
                 <NavLink
                     className='webdash__nav-link'
@@ -69,6 +70,7 @@ function WebNav() {
                 </NavLink>
             </li>
         </ul>
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import "./WebDashIntro.scss";
 import '../Team/Team.scss'
-import Container from "../Container/Container";
+import Container from '../Container/Container.js'
 import { useRef } from "react";
 import { useQuery } from "react-query";
 
@@ -86,47 +86,53 @@ function WebDashIntro() {
                 className="speaker__input"
                 type="text"
                 name="speaker_name"
-                placeholder="speaker Ism va Familiyasi "
+                placeholder="Speaker Ism va Familiyasi "
+                required
               />
               <input
                 ref={speakerJob}
                 className="speaker__input"
                 type="text"
                 name="speaker_job"
-                placeholder="speaker Ish joyi"
+                placeholder="Speaker Ish joyi"
+                required
               />
             </div>
             <textarea
               ref={speakerAbout}
               className="speaker__texarea"
               name="spaeker_about"
-              placeholder="speaker haqida"
+              placeholder="Speaker haqida"
+              required
             ></textarea>
           </div>
 
           <div className="web-intro__speaker speaker">
             <div className="speaker__inner">
-              <input
+              <textarea
                 ref={videoTitle}
                 className="speaker__input"
                 type="text"
                 name="video_title"
-                placeholder="video title"
+                placeholder="Video title (<span></span>)"
                 maxLength="100"
+                required
               />
               <input
                 ref={videoYtid}
                 className="speaker__input"
                 type="text"
                 name="video_ytid"
-                placeholder="video YouTube Link"
+                placeholder="Video YouTube Link"
+                required
               />
             </div>
             <textarea
               ref={videoTexts}
               className="speaker__texarea"
               name="video_text"
-              placeholder="video text"
+              placeholder="Video text"
+              required
             ></textarea>
           </div>
 
@@ -139,6 +145,7 @@ function WebDashIntro() {
                 type="file"
                 name="sliderImage"
                 accept="image/png"
+                required
                 onChange={(e) =>
                   e.target.parentElement.classList.add(
                     "web-intro__label-btn--active"
@@ -154,6 +161,7 @@ function WebDashIntro() {
                 type="file"
                 name="smallImage "
                 accept="image/*"
+                required
                 onChange={(e) =>
                   e.target.parentElement.classList.add(
                     "web-intro__label-btn--active"
@@ -169,6 +177,7 @@ function WebDashIntro() {
                 type="file"
                 name="bigImage "
                 accept="image/*"
+                required
                 onChange={(e) =>
                   e.target.parentElement.classList.add(
                     "web-intro__label-btn--active"
@@ -191,7 +200,7 @@ function WebDashIntro() {
                 <button
                   className="team-members__item-btn"
                   data-vid={e.video_id}
-                  onClick={deleted}
+                  onDoubleClickClick={deleted}
                 >
                   Delete
                 </button>

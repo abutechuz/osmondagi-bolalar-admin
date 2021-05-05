@@ -1,6 +1,12 @@
 /* Orders Section: */
 .offers {
     padding-top: 25px;
+    padding-bottom: 150px;
+    overflow-y: auto;
+    height: 78vh;
+}
+.offers::-webkit-scrollbar {
+    display: none;
 }
 
 .offers__wrapper {

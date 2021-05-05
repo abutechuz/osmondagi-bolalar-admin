@@ -1,0 +1,118 @@
+.stores {
+    padding: 25px 25px ;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 1100px;
+    overflow: hidden;
+    // width: 100%;
+}
+.store__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 25px;
+    background-color: #fff;
+    width: 60%;
+    padding: 10px;
+}
+.store__input {
+    margin-bottom: 25px;
+    width: 100%;
+    
+    &:nth-child(even) {
+        margin-bottom: 25px;
+    }
+    
+}
+.store__btn {
+}
+.stroes__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 0 10px 10px 10px;
+    border: 1px solid rgba(34, 34, 34, 0.137);
+    width: 35%;
+
+    height: 78vh;
+    overflow-y: auto;
+    padding-bottom: 150px;
+}
+.stroes__list::-webkit-scrollbar {
+    display: none;
+}
+.store__item {
+    border-bottom: 1px solid #DCDCDC;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    max-width: 325px;
+    width: 100%;
+}
+.store__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.store__item-btn {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    background-image: url("../../assets/img/Vector.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.store__title {
+    margin: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+}
+.store__addres {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.store__item-inner {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.store__link-tel {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    text-decoration: none;
+    margin-right: 5px;
+
+    &:hover {
+        text-decoration: underline;
+        color: #2F48BE;
+    }
+}
+.store__link-map {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #2F48BE;
+}

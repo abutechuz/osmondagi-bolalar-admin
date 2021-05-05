@@ -1,6 +1,12 @@
 /* Orders Section: */
 .orders {
     padding-top: 25px;
+    padding-bottom: 150px;
+    overflow-y: auto;
+    height: 78vh;
+}
+.orders::-webkit-scrollbar {
+    display: none;
 }
 
 .orders__wrapper {
