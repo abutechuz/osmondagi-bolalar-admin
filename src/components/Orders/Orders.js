@@ -30,6 +30,19 @@ function Orders() {
         setElements(elList?.current?.childElementCount)
     }, [data])
 
+    function handleClickOrderCancel(evt) {
+        const formData = new FormData()
+        formData.append('order_id', evt.target.dataset.orderdelete)
+
+        fetch('http://165.227.211.149:5472/orders', {
+            method: 'DELETE',
+            body: formData,
+            headers: {
+                token:
+                    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+            },
+        }).then(() => alert('Deleted'))
+    }
     return (
         <section className='orders'>
             <Container>
@@ -55,6 +68,9 @@ function Orders() {
                                 <th className='orders__table-column'>
                                     To'liq manzili
                                 </th>
+                                <th className='orders__table-column'>
+                                    Bekor qilish
+                                </th>
                             </tr>
                         </thead>
 
@@ -72,6 +88,18 @@ function Orders() {
                                             {order.order_phonenumber ?? '-'}
                                         </td>
                                         <td>{order.order_address ?? '-'}</td>
+                                        <td>
+                                            <button
+                                                className='orders-delete__btn user-table__send-button '
+                                                data-orderdelete={
+                                                    order.order_id
+                                                }
+                                                onDoubleClick={
+                                                    handleClickOrderCancel
+                                                }>
+                                                Bekor
+                                            </button>
+                                        </td>
                                     </tr>
                                 ))}
                         </tbody>
