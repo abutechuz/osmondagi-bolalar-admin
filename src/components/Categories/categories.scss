@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   width: 1250px;
+  border: 2px solid dodgerblue;
 }
 
 .categories {
@@ -17,6 +18,16 @@
 .categories__heading {
   margin: 0;
   margin-bottom: 10px;
+}
+
+.categories__button {
+  margin-top: 10px;
+  background-color: #ffd369;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .categories__title-input-wrapper,
@@ -34,6 +45,41 @@
 
 /* Categories Result */
 .categories-result__wrapper {
+  background-color: white;
+  padding: 30px;
+  width: 860px;
+}
+
+.categories__delete-button {
+  margin: 0;
+  background-color: dodgerblue;
+}
+
+/* Products Section */
+.products__wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1250px;
+  border: 2px solid #ffd369;
+  margin-top: 20px;
+}
+
+.products__input-wrapper {
+  background-color: white;
+  padding: 30px;
+  width: 357px;
+}
+
+.products__select,
+.size__select {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border-color: dodgerblue;
+  margin-top: 15px;
+}
+
+.products__result {
   background-color: white;
   padding: 30px;
   width: 860px;
