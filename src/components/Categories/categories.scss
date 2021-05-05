@@ -8,6 +8,13 @@
 
 .categories {
   padding-top: 25px;
+  padding-bottom: 150px;
+  overflow-y: auto;
+  height: 78vh;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
 }
 
 .categories__wrapper {
