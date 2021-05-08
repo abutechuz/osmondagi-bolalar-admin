@@ -1,5 +1,4 @@
 import './DashPost.scss'
-import { FileSvg } from '../Svgs/Svgs'
 import { useQuery } from 'react-query'
 import { client } from '../../utils/api-client'
 import { useRef } from 'react'
@@ -40,7 +39,7 @@ function DashPosts() {
                         await fetch('http://165.227.211.149:4000/post', {
                             method: 'POST',
                             body: formData,
-                        }).then(()=> alert("Sent"))
+                        }).then(() => alert('Sent'))
                     }}
                     className='post__form'
                     action=''
