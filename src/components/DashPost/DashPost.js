@@ -36,7 +36,7 @@ function DashPosts() {
                         formData.append('profession', JSON.stringify(profs))
                         formData.append('regions', JSON.stringify(region))
                         formData.append('age', JSON.stringify(ages))
-                        formData.append('img', image.current.files[0])
+                        formData.append('img', image.current.files)
                         formData.append('text', postText.current.value)
                         await fetch('http://165.227.211.149:4000/post', {
                             method: 'POST',
