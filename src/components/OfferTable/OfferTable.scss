@@ -1,15 +1,14 @@
 .offer-list__wrapper {
-    padding-top: 25px;
-    padding-bottom: 150px;
-    padding-left: 25px;
-    padding-right: 25px;
-    overflow-y: auto;
-    height: 78vh;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #dfe0eb;
+    border-radius: 3px;
     background-color: #fff;
-  }
-  .offer-list__wrapper::-webkit-scrollbar {
+    padding: 30px;
+}
+.offer-list__wrapper::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .offer-section__heading {
     margin: 0;

@@ -24,7 +24,7 @@ function DashPosts() {
     })
 
     const postText = useRef()
-    const image = useRef()
+
     return (
         <>
             <section className='post'>
@@ -36,39 +36,23 @@ function DashPosts() {
                         formData.append('profession', JSON.stringify(profs))
                         formData.append('regions', JSON.stringify(region))
                         formData.append('age', JSON.stringify(ages))
-                        formData.append('img', image.current.files[0])
-                        formData.append('text', postText.current.value)
+                        formData.append('msgId', postText.current.value)
                         await fetch('http://165.227.211.149:4000/post', {
                             method: 'POST',
                             body: formData,
-                        })
+                        }).then(()=> alert("Sent"))
                     }}
                     className='post__form'
                     action=''
                     method='post'>
                     <div className='post__container'>
-                        <label className='post__label-file'>
-                            <input
-                                ref={image}
-                                className='post__input-file visually-hidden'
-                                type='file'
-                                name='poster'
-                                multiple
-                                onChange={(e) =>
-                                    e.target.parentElement.classList.add(
-                                        'web-intro__label-btn--active'
-                                    )
-                                }
-                            />
-                            <FileSvg />
-                        </label>
-                        <textarea
+                        <input
                             ref={postText}
-                            className='post__textarea'
-                            name='text'
-                            cols='30'
-                            rows='5'
-                            placeholder='body'></textarea>
+                            className='post__id'
+                            name='id'
+                            type='number'
+                            placeholder='ID'
+                        />
                     </div>
 
                     <div className='post__target'>
