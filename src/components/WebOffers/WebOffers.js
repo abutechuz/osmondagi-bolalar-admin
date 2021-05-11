@@ -13,7 +13,7 @@ function WebOffers() {
     const elList = React.useRef(null)
 
     const fetchProjects = (page = 0) =>
-        fetch('http://165.227.211.149:5472/offers?l=5&p=' + page, {
+        fetch('https://api.osmondagibolalar.uz/offers?l=5&p=' + page, {
             method: 'GET',
             headers: {
                 token:

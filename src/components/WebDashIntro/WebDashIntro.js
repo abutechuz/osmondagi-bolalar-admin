@@ -23,7 +23,7 @@ function WebDashIntro() {
     queryKey: "video",
 
     queryFn: () =>
-      fetch("http://165.227.211.149:5472/videos", {
+      fetch("https://api.osmondagibolalar.uz/videos", {
         token:
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.                                   eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I",
       }).then((data) => data.json()),
@@ -45,7 +45,7 @@ function WebDashIntro() {
     formData.append("bigImage", bigImg.current.files[0]);
     console.log(bigImg.current.files[0]);
 
-    await fetch("http://165.227.211.149:5472/videos", {
+    await fetch("https://api.osmondagibolalar.uz/videos", {
       method: "POST",
       body: formData,
       headers: {
@@ -58,7 +58,7 @@ function WebDashIntro() {
   async function deleted(e) {
     const formData = new FormData();
     formData.append("video_id", e.target.dataset.vid);
-    await fetch(`http://165.227.211.149:5472/videos`, {
+    await fetch(`https://api.osmondagibolalar.uz/videos`, {
       method: "DELETE",
       body: formData,
       headers: {
