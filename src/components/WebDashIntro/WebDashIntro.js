@@ -122,7 +122,7 @@ function WebDashIntro() {
                 className="speaker__input"
                 type="text"
                 name="video_ytid"
-                placeholder="Video YouTube Link"
+                placeholder="Video YouTube ID"
                 required
               />
             </div>
