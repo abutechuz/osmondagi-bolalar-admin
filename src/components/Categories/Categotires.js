@@ -10,7 +10,7 @@ function Categories() {
         queryKey: 'categories',
 
         queryFn: () =>
-            fetch('http://165.227.211.149:5472/categories', {
+            fetch('https://api.osmondagibolalar.uz/categories', {
                 method: 'GET',
                 headers: {
                     token:
@@ -33,7 +33,7 @@ function Categories() {
         formData.append('category_price', category_price.value.trim())
         formData.append('category_image', category_image.files[0])
 
-        fetch('http://165.227.211.149:5472/categories', {
+        fetch('https://api.osmondagibolalar.uz/categories', {
             method: 'POST',
             body: formData,
             headers: {
@@ -52,7 +52,7 @@ function Categories() {
         const formData = new FormData()
         formData.append('category_id', evt.target.dataset.categorydeleted)
 
-        fetch('http://165.227.211.149:5472/categories', {
+        fetch('https://api.osmondagibolalar.uz/categories', {
             method: 'DELETE',
             body: formData,
             headers: {
@@ -67,7 +67,7 @@ function Categories() {
         queryKey: 'products',
 
         queryFn: () =>
-            fetch('http://165.227.211.149:5472/products', {
+            fetch('https://api.osmondagibolalar.uz/products', {
                 method: 'GET',
                 headers: {
                     token:
@@ -85,7 +85,7 @@ function Categories() {
         formData.append('category_id', category_id.value.trim())
         formData.append('product_size', product_size.value.trim())
 
-        fetch('http://165.227.211.149:5472/products', {
+        fetch('https://api.osmondagibolalar.uz/products', {
             method: 'POST',
             body: formData,
             headers: {
@@ -101,7 +101,7 @@ function Categories() {
         const formData = new FormData()
         formData.append('product_id', evt.target.dataset.productdeleted)
 
-        fetch('http://165.227.211.149:5472/products', {
+        fetch('https://api.osmondagibolalar.uz/products', {
             method: 'DELETE',
             body: formData,
             headers: {

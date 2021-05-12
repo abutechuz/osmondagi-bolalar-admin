@@ -12,7 +12,7 @@ function Orders() {
     const elList = React.useRef(null)
 
     const fetchProjects = (page = 0) =>
-        fetch('http://165.227.211.149:5472/orders?l=5&p=' + page, {
+        fetch('https://api.osmondagibolalar.uz/orders?l=5&p=' + page, {
             method: 'GET',
             headers: {
                 token:
@@ -34,7 +34,7 @@ function Orders() {
         const formData = new FormData()
         formData.append('order_id', evt.target.dataset.orderdelete)
 
-        fetch('http://165.227.211.149:5472/orders', {
+        fetch('https://api.osmondagibolalar.uz/orders', {
             method: 'DELETE',
             body: formData,
             headers: {

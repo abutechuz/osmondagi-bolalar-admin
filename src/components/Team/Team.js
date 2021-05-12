@@ -7,7 +7,7 @@ function Team() {
         queryKey: 'team',
 
         queryFn: () =>
-            fetch('http://165.227.211.149:5472/team', {
+            fetch('https://api.osmondagibolalar.uz/team', {
                 method: 'GET',
                 headers: {
                     token:
@@ -36,7 +36,7 @@ function Team() {
         formData.append('facebook', member_facebook_link.value.trim())
         formData.append('instagram', member_instagram_link.value.trim())
 
-        fetch('http://165.227.211.149:5472/team', {
+        fetch('https://api.osmondagibolalar.uz/team', {
             method: 'POST',
             body: formData,
             headers: {
@@ -58,7 +58,7 @@ function Team() {
         const formData = new FormData()
         formData.append('member_id', evt.target.dataset.memberid)
 
-        fetch('http://165.227.211.149:5472/team', {
+        fetch('https://api.osmondagibolalar.uz/team', {
             method: 'DELETE',
             body: formData,
             headers: {

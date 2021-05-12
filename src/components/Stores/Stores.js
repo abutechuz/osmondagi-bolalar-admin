@@ -13,7 +13,7 @@ function Stores() {
         queryKey: 'store',
 
         queryFn: () =>
-            fetch('http://165.227.211.149:5472/stores', {
+            fetch('https://api.osmondagibolalar.uz/stores', {
                 token:
                     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.                                   eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
             }).then((data) => data.json()),
@@ -27,7 +27,7 @@ function Stores() {
         formData.append('store_phonenumber', store_phonenumber.current.value)
         formData.append('store_map_address', store_map_address.current.value)
 
-        fetch('http://165.227.211.149:5472/stores', {
+        fetch('https://api.osmondagibolalar.uz/stores', {
             method: 'POST',
             body: formData,
             headers: {
@@ -40,7 +40,7 @@ function Stores() {
     async function storeDeleted(e) {
         const formData = new FormData()
         formData.append('store_id', e.target.dataset.sid)
-        await fetch(`http://165.227.211.149:5472/stores`, {
+        await fetch(`https://api.osmondagibolalar.uz/stores`, {
             method: 'DELETE',
             body: formData,
             headers: {
