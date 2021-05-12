@@ -1,11 +1,11 @@
 .user-table__wrapper {
-    width: 1050px;
+    width: 100%;
+    max-width: 1050px;
     border: 1px solid #dfe0eb;
     border-radius: 3px;
     background-color: #fff;
     padding: 30px;
     overflow-y: auto;
-    height: 78vh;
 }
 
 .user-section__heading {

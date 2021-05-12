@@ -1,5 +1,6 @@
 .speaker-table__wrapper {
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     border: 1px solid #dfe0eb;
     border-radius: 3px;
     background-color: #fff;
@@ -18,7 +19,7 @@
     padding-right: 10px;
     border-collapse: collapse;
     margin-bottom: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .speaker-table {
