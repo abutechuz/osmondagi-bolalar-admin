@@ -38,6 +38,22 @@ function QuestionTable() {
         })
     }
 
+    function handleClickDeleteBtn(evt) {
+        evt.preventDefault()
+        let user_tg_id = evt.target.dataset.delete;
+        fetch('http://165.227.211.149:5000/setquestion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_tg_id: user_tg_id,
+            }),
+        }).then((data) =>
+            alert('Completed')
+        )
+    }
+
     return (
         <div className='question-list__wrapper'>
             <h2 className='question-section__heading title'>Barcha Savollar</h2>
@@ -66,6 +82,14 @@ function QuestionTable() {
                                 data-reply={q?.user_tg_id}
                                 data-question={q?.question}>
                                 Reply
+                            </button>
+                            <button
+                                className='speaker__delete-btn'
+                                type='button'
+                                onClick={handleClickDeleteBtn}
+                                data-delete={q?.user_tg_id}
+                                data-question={q?.question}>
+                                delete
                             </button>
                         </li>
                     ))}
