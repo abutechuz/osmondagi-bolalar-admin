@@ -22,11 +22,12 @@ function WebDashIntro() {
     const { data, isSuccess } = useQuery({
         queryKey: 'video',
 
-        queryFn: () =>
-            fetch('https://api.osmondagibolalar.uz/videos', {
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
-            }).then((data) => data.json()),
-    })
+    queryFn: () =>
+      fetch("https://api.osmondagibolalar.uz/videos", {
+        token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+      }).then((data) => data.json()),
+  });
 
     async function added(evt) {
         evt.preventDefault()
@@ -43,6 +44,7 @@ function WebDashIntro() {
         formData.append('smallImage', smallImg.current.files[0])
         formData.append('bigImage', bigImg.current.files[0])
 
+<<<<<<< HEAD
         await fetch('https://api.osmondagibolalar.uz/videos', {
             method: 'POST',
             body: formData,
@@ -63,6 +65,30 @@ function WebDashIntro() {
             },
         }).then(() => alert('Deleted'))
     }
+=======
+    await fetch("http://165.227.211.149:5005/videos", {
+      method: "POST",
+      body: formData,
+      headers: {
+        token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+      },
+    }).then(() => alert("Added"));
+  }
+
+  async function deleted(e) {
+    const formData = new FormData();
+    formData.append("video_id", e.target.dataset.vid);
+    await fetch(`http://165.227.211.149:5005/videos`, {
+      method: "DELETE",
+      body: formData,
+      headers: {
+        token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIkMmEkMDYkYWxpb3lLRkVVUWd5VzJ2S2MwUXc3dW1vOVZIWjFDa0U1UUFmTkliT0V0Wi9iSUMvRzZLRi4iLCJpYXQiOjE2MjAwMjQzMDZ9.ifbelGdLxQ3Hg_RbtT3RIpAw9V1MGLBpDkrrnh1zh-I',
+      },
+    }).then(() => alert("Deleted"));
+  }
+>>>>>>> 9127dbd2c25145cc4ab05e9fa60c9adf94e59502
 
     return (
         <>
